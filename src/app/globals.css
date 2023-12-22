@@ -8,35 +8,35 @@
        Author: Ilias Ism
        URL: https://gradient.page */
 
-    --gradient: linear-gradient(to top left, #091e3a, #2f80ed, #2d9ee0);
-    --background: 228 98.65% 98.26%;
-    --foreground: 228 7.3% 0.52%;
+    --gradient: linear-gradient(to top left, #231557, #44107a, #ff1361);
+    --background: 269 98.05% 98.42%;
+    --foreground: 269 6.1% 0.84%;
 
-    --muted: 228 7.3% 91.3%;
-    --muted-foreground: 228 3.65% 41.3%;
+    --muted: 269 6.1% 92.1%;
+    --muted-foreground: 269 3.05% 42.1%;
 
-    --popover: 228 31.6% 91.3%;
-    --popover-foreground: 228 7.3% 0.65%;
+    --popover: 269 41.2% 92.1%;
+    --popover-foreground: 269 6.1% 1.05%;
 
-    --card: 228 31.6% 91.3%;
-    --card-foreground: 228 7.3% 0.65%;
+    --card: 269 41.2% 92.1%;
+    --card-foreground: 269 6.1% 1.05%;
 
-    --border: 228 12.3% 89.52%;
-    --input: 228 12.3% 89.52%;
+    --border: 269 11.1% 89.84%;
+    --input: 269 11.1% 89.84%;
 
-    --primary: 228 73% 13%;
-    --primary-foreground: 228 1.46% 91.3%;
+    --primary: 269 61% 21%;
+    --primary-foreground: 269 1.22% 92.1%;
 
-    --secondary: 228 3.65% 95.65%;
-    --secondary-foreground: 228 5.38% 11.3%;
+    --secondary: 269 3.05% 96.05%;
+    --secondary-foreground: 269 4.66% 12.1%;
 
-    --accent: 228 3.65% 95.65%;
-    --accent-foreground: 228 5.38% 11.3%;
+    --accent: 269 3.05% 96.05%;
+    --accent-foreground: 269 4.66% 12.1%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring: 228 73% 13%;
+    --ring: 269 61% 21%;
 
     --radius: 0.5rem;
   }
@@ -46,36 +46,36 @@
        Author: Ilias Ism
        URL: https://gradient.page */
 
-    --gradient: linear-gradient(to top left, #2980b9, #6dd5fa, #ffffff);
+    --gradient: linear-gradient(to top left, #65379b, #886aea, #6457c6);
 
-    --background: 216 41.6% 3.52%;
-    --foreground: 216 6.4% 97.2%;
+    --background: 284 30.549999999999997% 3.28%;
+    --foreground: 284 4.699999999999999% 97.05%;
 
-    --muted: 216 32% 13.2%;
-    --muted-foreground: 216 6.4% 54.4%;
+    --muted: 284 23.5% 12.299999999999999%;
+    --muted-foreground: 284 4.699999999999999% 54.1%;
 
-    --popover: 216 52.2% 5.72%;
-    --popover-foreground: 216 6.4% 97.2%;
+    --popover: 284 55.6% 5.33%;
+    --popover-foreground: 284 4.699999999999999% 97.05%;
 
-    --card: 216 52.2% 5.72%;
-    --card-foreground: 216 6.4% 97.2%;
+    --card: 284 55.6% 5.33%;
+    --card-foreground: 284 4.699999999999999% 97.05%;
 
-    --border: 216 32% 13.2%;
-    --input: 216 32% 13.2%;
+    --border: 284 23.5% 12.299999999999999%;
+    --input: 284 23.5% 12.299999999999999%;
 
-    --primary: 216 64% 44%;
-    --primary-foreground: 216 6.4% 97.2%;
+    --primary: 284 47% 41%;
+    --primary-foreground: 284 4.699999999999999% 97.05%;
 
-    --secondary: 216 32% 13.2%;
-    --secondary-foreground: 216 6.4% 97.2%;
+    --secondary: 284 23.5% 12.299999999999999%;
+    --secondary-foreground: 284 4.699999999999999% 97.05%;
 
-    --accent: 216 32% 13.2%;
-    --accent-foreground: 216 6.4% 97.2%;
+    --accent: 284 23.5% 12.299999999999999%;
+    --accent-foreground: 284 4.699999999999999% 97.05%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 216 6.4% 97.2%;
+    --destructive-foreground: 284 4.699999999999999% 97.05%;
 
-    --ring: 216 64% 44%;
+    --ring: 284 47% 41%;
   }
 }
 
