@@ -18,8 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={cn(inter.className, "md:container")}>
+    <html lang="en" className="md:container ">
+      <body
+        className={cn(
+          inter.className,
+          "md:container flex flex-col justify-center items-center max-w-screen-xl"
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
