@@ -72,7 +72,7 @@ export default function Header() {
           </Sheet>
 
           <Link href="/">
-            <h1 className="font-bold text-md">
+            <h1 className="font-bold text-lg">
               QUIL
               <span className="bg-gradient-to-r from-purple-900 to-indigo-500 bg-clip-text text-transparent">
                 DEV
@@ -85,7 +85,7 @@ export default function Header() {
       <nav className="hidden md:flex bg-card p-[0.5rem] h-[60px] justify-center items-center gap-2 rounded-b-lg text-card-foreground shadow-sm border">
         <Link
           href="/"
-          className="flex justify-start items-center w-full h-full"
+          className="flex justify-center items-center w-[20%]  h-full"
         >
           <h1 className="font-bold text-lg md:text-1xl lg:text-2xl">
             QUIL
