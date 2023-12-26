@@ -9,6 +9,7 @@
        URL: https://gradient.page */
 
     --gradient: linear-gradient(to top left, #231557, #44107a, #ff1361);
+
     --background: 269 98.05% 98.42%;
     --foreground: 269 6.1% 0.84%;
 
@@ -38,7 +39,7 @@
 
     --ring: 269 61% 21%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
