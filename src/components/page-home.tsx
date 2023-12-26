@@ -59,7 +59,7 @@ export default function PageHome() {
             em JavaScript, React, Next, TypeScript, TailwindCSS e Firebase.
           </h3>
           <Separator className="mt-2 w-[90%]" />
-          <div className="flex justify-center items-center gap-2 mt-2 w-[250px] md:w-[300px]">
+          <div className="flex justify-center items-center gap-2 mt-4 w-[250px] md:w-[300px]">
             <Button className="flex justify-center w-full">
               <p className="mr-2 text-xs md:text-sm">Contato</p>
               <MessageSquare
