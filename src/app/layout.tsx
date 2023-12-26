@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/providers/theme-provider";
 import Header from "@/components/header";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito_sans = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "QuiL <Dev/>",
@@ -18,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="md:container ">
+    <html lang="en" className="xl:container ">
       <body
         className={cn(
-          inter.className,
-          "md:container flex flex-col justify-center items-center max-w-screen-xl"
+          nunito_sans.className,
+          "xl:container flex flex-col justify-center items-center max-w-screen-xl"
         )}
       >
         <ThemeProvider
