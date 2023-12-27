@@ -29,7 +29,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
 
-            <SheetContent side="left" className="w-[21.875rem]">
+            <SheetContent side="left" className="w-[18.75rem]">
               <SheetHeader className="text-left text-lg font-semibold">
                 Menu
               </SheetHeader>
@@ -39,7 +39,7 @@ export default function Header() {
                   <Avatar>
                     <AvatarFallback>Quilion Oliveira</AvatarFallback>
 
-                    <AvatarImage src="avatar.png" />
+                    <AvatarImage src="quilion.png" />
                   </Avatar>
 
                   <div className="flex flex-col">
@@ -82,7 +82,7 @@ export default function Header() {
         </Card>
       </nav>
 
-      <nav className="hidden md:flex bg-card p-[0.5rem] h-[60px] justify-center items-center gap-2 rounded-b-lg text-card-foreground shadow-sm border">
+      <nav className="hidden md:flex bg-card p-[0.5rem] h-[60px] justify-center items-center gap-2 rounded-b-sm text-card-foreground shadow-sm border">
         <Link
           href="/"
           className="flex justify-center items-center w-[20%]  h-full"
