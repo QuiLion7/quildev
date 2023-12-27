@@ -181,11 +181,13 @@ export default function PageSkills() {
     >
       {technicalAbilities.map((ability, index) => (
         <div
-          className="flex flex-col justify-center items-start hover:bg-secondary duration-300 hover:duration-300 rounded-lg p-2"
+          className="flex flex-col justify-center items-start border border-primary/0 hover:border-primary/100 duration-300 hover:duration-300 rounded-lg p-2"
           key={index}
         >
-          <h2 className="text-md md:text-xl uppercase mb-2">{ability.name}</h2>
-          <div className=" grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 md:gap-3 lg:grid-cols-5 justify-center items-center w-full">
+          <h2 className="text-md md:text-xl uppercase mb-2 w-full">
+            {ability.name}
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 md:gap-3 lg:grid-cols-5 justify-center items-center w-full h-auto ">
             {ability.skills.map((skill, skillIndex) => (
               <Button
                 asChild
