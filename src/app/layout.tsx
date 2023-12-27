@@ -18,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="xl:container ">
+    <html lang="en" className="xl:container">
       <body
         className={cn(
           nunito_sans.className,
-          "xl:container flex flex-col justify-center items-center max-w-screen-xl"
+          "xl:container flex flex-col justify-center items-center"
         )}
       >
         <ThemeProvider
