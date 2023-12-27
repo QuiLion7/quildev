@@ -8,10 +8,10 @@ import {
 } from "lucide-react";
 
 export const navigationLinks = [
-  { label: "Home", path: "#", icon: Monitor },
-  { label: "About", path: "#about", icon: User },
-  { label: "Skills", path: "#skills", icon: Code2 },
-  { label: "Services", path: "#services", icon: FileCode },
-  { label: "Portfolio", path: "#portfolio", icon: BookOpenCheck },
-  { label: "Contact", path: "#contact", icon: Contact },
+  { label: "Inicio", path: "#home", icon: Monitor },
+  { label: "Sobre Mim", path: "#about", icon: User },
+  { label: "Habilidades Técnicas", path: "#skills", icon: Code2 },
+  // { label: "Services", path: "#services", icon: FileCode },
+  { label: "Projetos", path: "#portfolio", icon: BookOpenCheck },
+  { label: "Contato", path: "#contact", icon: Contact },
 ];
