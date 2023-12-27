@@ -62,7 +62,7 @@ export default function PageHome() {
           <h1 className="text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-3 uppercase font-bold">
             Quilion Oliveira
           </h1>
-          <Separator className="mb-2 w-[90%]" />
+          <Separator className="mb-2 w-[90%] bg-primary" />
           <h2 className="text-md font-semibold uppercase md:text-xl lg:text-2xl mb-1 md:mb-2">
             Desenvolvedor Front-End
           </h2>
@@ -70,7 +70,7 @@ export default function PageHome() {
             {mainSkills.map((skill, index) => (
               <h3
                 key={index}
-                className="border-2 border-primary bg-primary/10 hover:bg-secondary rounded-lg px-2 w-auto"
+                className="border-1 border-primary bg-primary/40 hover:bg-secondary duration-300 hover:duration-300 rounded-lg px-2 w-auto"
               >
                 {skill}
               </h3>
@@ -80,7 +80,7 @@ export default function PageHome() {
             Sou um solucionador de problemas que transforma ideias em Realidade
             e busca evoluir constantemente.
           </h3>
-          <Separator className="mt-2 w-[90%]" />
+          <Separator className="mt-2 w-[90%] bg-primary" />
           <div className="flex justify-center items-center gap-2 mt-4 w-[250px] md:w-[300px]">
             <Button className="flex justify-center w-full">
               <p className="mr-2 text-xs md:text-sm">Contato</p>

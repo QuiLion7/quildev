@@ -11,11 +11,11 @@ export default function Home() {
       </div>
       <PageHome />
 
-      <Separator />
+      <Separator className="bg-primary" />
 
       <PageSkills />
 
-      <Separator />
+      <Separator className="bg-primary" />
     </div>
   );
 }
