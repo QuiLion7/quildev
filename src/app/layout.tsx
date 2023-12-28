@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         className={cn(
           nunito_sans.className,
-          "xl:container flex flex-col justify-center items-center"
+          "w-full flex flex-col justify-center items-center",
         )}
       >
         <ThemeProvider
