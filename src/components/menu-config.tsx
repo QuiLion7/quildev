@@ -11,6 +11,7 @@ import {
 import { Moon, Settings, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Cookies from "js-cookie";
+import { cn } from "@/lib/utils";
 
 interface MenuConfigProps {
   displayType: string;
@@ -43,7 +44,15 @@ export function MenuConfig({ displayType }: MenuConfigProps) {
           {displayType === "mobile" ? "Configuração" : <Settings />}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="mr-1 mt-2 w-44 bg-primary text-primary-foreground">
+      <DropdownMenuContent
+        side={displayType === "mobile" ? "bottom" : "top"}
+        className={cn(
+          "bg-primary text-primary-foreground",
+          displayType === "mobile"
+            ? "ml-[1.5rem] mt-1 w-[252px]"
+            : "mr-16 mt-4 w-52 ",
+        )}
+      >
         <DropdownMenuLabel>Tema</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuCheckboxItem
