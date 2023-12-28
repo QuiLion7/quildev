@@ -10,21 +10,31 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, Settings } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { useState } from "react";
+import { MenuConfig } from "./menu-config";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   return (
-    <div className="w-full">
+    <div className="h-full w-full">
       <nav className="flex md:hidden">
-        <Card className="flex items-center w-full justify-between p-2">
-          <Sheet>
+        <Card className="flex h-[50px] w-full items-center justify-between p-2">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline">
+              <Button size="icon" variant="outline" onClick={handleOpen}>
                 <MenuIcon />
               </Button>
             </SheetTrigger>
@@ -55,8 +65,8 @@ export default function Header() {
 
               <div className="mt-4 flex flex-col gap-2">
                 {navigationLinks.map((link, index) => (
-                  <SheetClose key={index}>
-                    <Link href={link.path}>
+                  <SheetClose asChild key={index}>
+                    <Link href={link.path} onClick={handleClose}>
                       <Button
                         variant="default"
                         className="w-full justify-start gap-2"
@@ -67,12 +77,20 @@ export default function Header() {
                     </Link>
                   </SheetClose>
                 ))}
+                <SheetClose asChild>
+                  <div onClick={handleClose}>
+                    <div className="inline-flex h-10 w-full items-center justify-start  whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                      <Settings size={16} />
+                      <MenuConfig displayType={"mobile"} />
+                    </div>
+                  </div>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>
 
           <Link href="/">
-            <h1 className="font-bold text-lg">
+            <h1 className="text-lg font-bold">
               QUIL
               <span className="bg-gradient-to-r from-purple-900 to-indigo-500 bg-clip-text text-transparent">
                 DEV
@@ -82,12 +100,12 @@ export default function Header() {
         </Card>
       </nav>
 
-      <nav className="hidden md:flex bg-card p-[0.5rem] h-[60px] justify-center items-center gap-2 rounded-b-sm text-card-foreground shadow-sm border">
+      <nav className="hidden h-[60px] items-center justify-center gap-2 rounded-b-sm border bg-card p-[0.5rem] text-card-foreground shadow-sm md:flex">
         <Link
           href="/"
-          className="flex justify-center items-center w-[20%]  h-full"
+          className="flex h-full w-[20%] items-center  justify-center"
         >
-          <h1 className="font-bold text-lg md:text-1xl lg:text-2xl">
+          <h1 className="md:text-1xl text-lg font-bold lg:text-2xl">
             QUIL
             <span className="bg-gradient-to-r from-purple-900 to-indigo-500 bg-clip-text text-transparent">
               DEV
@@ -95,13 +113,13 @@ export default function Header() {
           </h1>
         </Link>
 
-        <ul className="flex gap-2 w-full h-full justify-end items-center text-md p2-1 pr-2">
+        <ul className="text-md p2-1 flex h-full w-full items-center justify-end gap-2 pr-2">
           {navigationLinks.map((link, index) => (
             <li
               key={index}
               className={
                 activeLink === link.path
-                  ? "text-primary bg-accent rounded-lg p-2"
+                  ? "rounded-lg bg-accent p-2 text-primary"
                   : "p-2"
               }
               onMouseEnter={() => setActiveLink(link.path)}
@@ -111,6 +129,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
+        <MenuConfig displayType={"desktop"} />
       </nav>
     </div>
   );
