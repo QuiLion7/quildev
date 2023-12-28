@@ -23,90 +23,90 @@ export default function Home() {
   ];
 
   return (
-    <div className="h-[92.57vh] container flex flex-col justify-center items-center p-0">
-      <div className="flex flex-col md:flex-row justify-between items-center w-full h-full">
-        <section className="w-full md:w-[20%] md:h-full p-4 flex flex-row md:flex-col gap-4 md:gap-6 justify-center items-center order-last md:order-none">
+    <div className="container flex h-[91.57vh] flex-col items-center justify-center p-0">
+      <div className="flex h-full w-full flex-col items-center justify-between md:flex-row">
+        <section className="order-last flex w-full flex-row items-center justify-center gap-4 p-4 md:order-none md:h-full md:w-[20%] md:flex-col md:gap-6">
           <Link
-            className="hover:scale-125 rounded-lg duration-300 hover:duration-300 hover:bg-primary hover:rounded-lg p-1 hover:text-secondary"
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
             href="https://github.com/QuiLion7"
             target="_blank"
           >
-            <Github className="w-5 h-5 md:w-6 md:h-6" />
+            <Github className="h-5 w-5 md:h-6 md:w-6" />
           </Link>
           <Link
-            className="hover:scale-125 rounded-lg duration-300 hover:duration-300 hover:bg-primary hover:rounded-lg p-1 hover:text-secondary"
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
             href="https://www.linkedin.com/in/quilion7/"
             target="_blank"
           >
-            <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
+            <Linkedin className="h-5 w-5 md:h-6 md:w-6" />
           </Link>
           <Link
-            className="hover:scale-125 rounded-lg duration-300 hover:duration-300 hover:bg-primary hover:rounded-lg p-1 hover:text-secondary"
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
             href="https://www.instagram.com/quilion7"
             target="_blank"
           >
-            <Instagram className="w-5 h-5 md:w-6 md:h-6" />
+            <Instagram className="h-5 w-5 md:h-6 md:w-6" />
           </Link>
           <Link
-            className="hover:scale-125 rounded-lg duration-300 hover:duration-300 hover:bg-primary hover:rounded-lg p-1 hover:text-secondary"
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
             href="https://www.youtube.com/@quilcode"
             target="_blank"
           >
-            <Youtube className="w-5 h-5 md:w-6 md:h-6" />
+            <Youtube className="h-5 w-5 md:h-6 md:w-6" />
           </Link>
         </section>
-        <section className="flex justify-center md:justify-evenly items-center flex-col md:flex-row w-full h-full p-0 md:p-4">
-          <div className="w-full h-full flex flex-col justify-start p-2 md:justify-center items-center order-last md:order-first gap-2">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl uppercase font-bold">
+        <section className="flex h-full w-full flex-col items-center justify-center p-0 md:flex-row md:justify-evenly md:p-4">
+          <div className="order-last flex h-full w-full flex-col items-center justify-start gap-2 p-2 md:order-first md:justify-center">
+            <h1 className="text-2xl font-bold uppercase md:text-3xl lg:text-4xl">
               Quilion Oliveira
             </h1>
             <Separator className="mb-2 bg-primary" />
-            <div className="flex flex-col justify-center items-center h-auto gap-3 xs:gap-2">
-              <h2 className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">
+            <div className="xs:gap-2 flex h-auto flex-col items-center justify-center gap-3">
+              <h2 className="text-lg font-semibold uppercase md:text-xl lg:text-2xl">
                 Desenvolvedor Front-End
               </h2>
-              <div className="flex flex-wrap gap-2 justify-center items-center text-center text-xs md:text-sm lg:text-base">
+              <div className="flex flex-wrap items-center justify-center gap-2 text-center text-xs md:text-sm lg:text-base">
                 {mainSkills.map((skill, index) => (
                   <h3
                     key={index}
-                    className="border-1 border-primary bg-primary/40 hover:bg-secondary duration-300 hover:duration-300 rounded-lg px-2 w-auto"
+                    className="border-1 w-auto rounded-lg border-primary bg-primary/40 px-2 duration-300 hover:bg-secondary hover:duration-300"
                   >
                     {skill}
                   </h3>
                 ))}
               </div>
-              <h3 className="text-xs md:text-sm lg:text-base text-center">
+              <h3 className="text-center text-xs md:text-sm lg:text-base">
                 Sou um solucionador de problemas que transforma ideias em
                 Realidade e busca evoluir constantemente.
               </h3>
             </div>
             <Separator className="mt-2 bg-primary" />
-            <div className="flex justify-center items-center gap-2 mt-4 w-[250px] md:w-[300px]">
-              <Button className="flex justify-center w-full">
+            <div className="mt-4 flex w-[250px] items-center justify-center gap-2 md:w-[300px]">
+              <Button className="flex w-full justify-center">
                 <p className="mr-2 text-xs md:text-sm">Contato</p>
                 <MessageSquare
                   size={0}
-                  className="w-[0.8rem] md:w-[1.1rem] h-auto"
+                  className="h-auto w-[0.8rem] md:w-[1.1rem]"
                 />
               </Button>
-              <Button asChild className="flex justify-center w-full">
+              <Button asChild className="flex w-full justify-center">
                 <Link
                   href="https://drive.google.com/file/d/17VX4F-R15BVL2iY2jiarawZMtIUjGtZF/view?usp=sharing"
                   target="_blank"
                 >
                   <p className="mr-2 text-xs md:text-sm">Currículo</p>
-                  <Text size={0} className="w-[0.8rem] md:w-[1.1rem] h-auto" />
+                  <Text size={0} className="h-auto w-[0.8rem] md:w-[1.1rem]" />
                 </Link>
               </Button>
             </div>
           </div>
-          <div className="flex justify-center items-center p-2 w-full md:w-auto h-full">
-            <div className="bg-primary hover:bg-secondary-foreground/90 duration-500 hover:duration-500 flex justify-center items-center w-[220px] h-[220px] md:w-[250px] md:h-[250px]  rounded-xl order-first md:order-last">
+          <div className="flex h-full w-full items-center justify-center p-2 md:w-auto">
+            <div className="order-first flex h-[220px] w-[220px] items-center justify-center rounded-xl bg-primary duration-500 hover:bg-secondary-foreground/90 hover:duration-500  md:order-last md:h-[250px] md:w-[250px]">
               <Image
                 src="/profile.png"
                 width={0}
                 height={0}
-                className="md:h-auto w-[80%] hover:w-[100%] duration-500 hover:duration-500"
+                className="w-[80%] duration-500 hover:w-[100%] hover:duration-500 md:h-auto"
                 sizes="100%"
                 priority
                 alt="Criança programando"
