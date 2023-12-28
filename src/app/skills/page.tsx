@@ -227,7 +227,7 @@ export default function Skills() {
       <div className="flex w-full flex-row flex-wrap items-center justify-center gap-4">
         {technicalAbilities.map((ability, index) => (
           <div
-            className="flex h-auto w-full max-w-[270px] flex-col items-center justify-center rounded-lg border border-primary p-2 text-center duration-300 hover:border-primary/100 hover:duration-300 sm:max-w-[310px] "
+            className="flex h-auto w-full max-w-[270px] flex-col items-center justify-center rounded-lg border border-primary p-2 text-center duration-300 hover:bg-secondary hover:duration-300 sm:max-w-[310px] md:max-w-[350px]"
             key={index}
           >
             <h2 className=" text-md mb-2 flex w-full items-center justify-center md:text-lg">
