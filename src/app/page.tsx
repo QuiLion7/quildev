@@ -23,40 +23,23 @@ export default function Home() {
   ];
 
   return (
-    <div className="container flex h-[91.57vh] flex-col items-center justify-center p-0">
-      <div className="flex h-full w-full flex-col items-center justify-between md:flex-row">
-        <section className="order-last flex w-full flex-row items-center justify-center gap-4 p-4 md:order-none md:h-full md:w-[20%] md:flex-col md:gap-6">
-          <Link
-            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
-            href="https://github.com/QuiLion7"
-            target="_blank"
-          >
-            <Github className="h-5 w-5 md:h-6 md:w-6" />
-          </Link>
-          <Link
-            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
-            href="https://www.linkedin.com/in/quilion7/"
-            target="_blank"
-          >
-            <Linkedin className="h-5 w-5 md:h-6 md:w-6" />
-          </Link>
-          <Link
-            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
-            href="https://www.instagram.com/quilion7"
-            target="_blank"
-          >
-            <Instagram className="h-5 w-5 md:h-6 md:w-6" />
-          </Link>
-          <Link
-            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
-            href="https://www.youtube.com/@quilcode"
-            target="_blank"
-          >
-            <Youtube className="h-5 w-5 md:h-6 md:w-6" />
-          </Link>
-        </section>
-        <section className="flex h-full w-full flex-col items-center justify-center p-0 md:flex-row md:justify-evenly md:p-4">
-          <div className="order-last flex h-full w-full flex-col items-center justify-start gap-2 p-2 md:order-first md:justify-center">
+    <div className="container flex min-h-[91.57vh] flex-col items-center justify-center p-0">
+      <div className="flex h-full w-full flex-col items-center justify-between">
+        <section className="flex h-full w-full flex-col items-center justify-center gap-4 p-0 md:justify-evenly md:p-4">
+          <div className="flex h-full max-h-[300px] w-full items-center justify-center p-2 md:w-auto">
+            <div className="order-first flex h-[200px] w-[200px] items-center justify-center rounded-xl bg-primary duration-500 hover:bg-secondary-foreground/90 hover:duration-500 md:h-[230px] md:w-[230px]">
+              <Image
+                src="/profile.png"
+                width={0}
+                height={0}
+                className="w-[80%] duration-500 hover:w-[100%] hover:duration-500 md:h-auto"
+                sizes="100%"
+                priority
+                alt="Criança programando"
+              />
+            </div>
+          </div>
+          <div className="flex h-full w-full flex-col items-center justify-start gap-2 p-2  md:justify-center">
             <h1 className="text-2xl font-bold uppercase md:text-3xl lg:text-4xl">
               Quilion Oliveira
             </h1>
@@ -100,19 +83,36 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="flex h-full w-full items-center justify-center p-2 md:w-auto">
-            <div className="order-first flex h-[220px] w-[220px] items-center justify-center rounded-xl bg-primary duration-500 hover:bg-secondary-foreground/90 hover:duration-500  md:order-last md:h-[250px] md:w-[250px]">
-              <Image
-                src="/profile.png"
-                width={0}
-                height={0}
-                className="w-[80%] duration-500 hover:w-[100%] hover:duration-500 md:h-auto"
-                sizes="100%"
-                priority
-                alt="Criança programando"
-              />
-            </div>
-          </div>
+        </section>
+        <section className="flex w-full flex-row items-center justify-center gap-4 p-4 md:order-none md:h-full md:w-[20%] md:gap-6">
+          <Link
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
+            href="https://github.com/QuiLion7"
+            target="_blank"
+          >
+            <Github className="h-5 w-5 md:h-6 md:w-6" />
+          </Link>
+          <Link
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
+            href="https://www.linkedin.com/in/quilion7/"
+            target="_blank"
+          >
+            <Linkedin className="h-5 w-5 md:h-6 md:w-6" />
+          </Link>
+          <Link
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
+            href="https://www.instagram.com/quilion7"
+            target="_blank"
+          >
+            <Instagram className="h-5 w-5 md:h-6 md:w-6" />
+          </Link>
+          <Link
+            className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
+            href="https://www.youtube.com/@quilcode"
+            target="_blank"
+          >
+            <Youtube className="h-5 w-5 md:h-6 md:w-6" />
+          </Link>
         </section>
       </div>
     </div>
