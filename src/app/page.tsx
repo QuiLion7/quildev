@@ -23,9 +23,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="container flex min-h-[91.57vh] flex-col items-center justify-center p-0">
-      <div className="flex h-full w-full flex-col items-center justify-between">
-        <section className="flex h-full w-full flex-col items-center justify-center gap-4 p-0 md:justify-evenly md:p-4">
+    <div className="container flex h-full flex-col items-center justify-center p-0">
+      <div className="flex min-h-[91.57vh] w-full flex-col items-center justify-between">
+        <section className="flex h-full min-h-[81.57vh] w-full flex-col items-center justify-center gap-4 p-0 md:justify-evenly md:p-4">
           <div className="flex h-full max-h-[300px] w-full items-center justify-center p-2 md:w-auto">
             <div className="order-first flex h-[200px] w-[200px] items-center justify-center rounded-xl bg-primary duration-500 hover:bg-secondary-foreground/90 hover:duration-500 md:h-[230px] md:w-[230px]">
               <Image
@@ -84,7 +84,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="flex w-full flex-row items-center justify-center gap-4 p-4 md:order-none md:h-full md:w-[20%] md:gap-6">
+        <section className="mb-3 flex h-[40%] w-full flex-row items-end justify-center gap-4">
           <Link
             className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
             href="https://github.com/QuiLion7"
