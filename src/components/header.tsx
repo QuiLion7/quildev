@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <div className="h-full w-full">
       <nav className="flex md:hidden">
-        <Card className="flex h-[50px] w-full items-center justify-between p-2">
+        <Card className="flex h-[50px] w-full items-center justify-between px-[2%]">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button size="icon" variant="outline" onClick={handleOpen}>
@@ -63,7 +63,7 @@ export default function Header() {
                 <Separator />
               </div>
 
-              <div className="mt-4 flex flex-col gap-2">
+              <nav className="mt-4 flex flex-col gap-2">
                 {navigationLinks.map((link, index) => (
                   <SheetClose asChild key={index}>
                     <Link href={link.path} onClick={handleClose}>
@@ -85,7 +85,7 @@ export default function Header() {
                     </div>
                   </div>
                 </SheetClose>
-              </div>
+              </nav>
             </SheetContent>
           </Sheet>
 
@@ -100,11 +100,8 @@ export default function Header() {
         </Card>
       </nav>
 
-      <nav className="hidden h-[60px] items-center justify-center gap-2 rounded-b-sm border bg-card p-[0.5rem] text-card-foreground shadow-sm md:flex">
-        <Link
-          href="/"
-          className="flex h-full w-[20%] items-center  justify-center"
-        >
+      <nav className="hidden h-[60px] items-center justify-center gap-2 rounded-b-sm border bg-card p-[0.5rem] px-[2%] text-card-foreground shadow-sm md:flex">
+        <Link href="/" className="flex h-full items-center  justify-center">
           <h1 className="md:text-1xl text-lg font-bold lg:text-2xl">
             QUIL
             <span className="bg-gradient-to-r from-purple-900 to-indigo-500 bg-clip-text text-transparent">
@@ -113,7 +110,7 @@ export default function Header() {
           </h1>
         </Link>
 
-        <ul className="text-md p2-1 flex h-full w-full items-center justify-end gap-2 pr-2">
+        <ul className="p2-1 flex h-full w-full items-center justify-end gap-2 pr-2 text-sm uppercase">
           {navigationLinks.map((link, index) => (
             <li
               key={index}
@@ -125,7 +122,9 @@ export default function Header() {
               onMouseEnter={() => setActiveLink(link.path)}
               onMouseLeave={() => setActiveLink(null)}
             >
-              <Link href={link.path}>{link.label}</Link>
+              <Link href={link.path} className="">
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
