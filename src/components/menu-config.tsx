@@ -47,7 +47,7 @@ export function MenuConfig({ displayType }: MenuConfigProps) {
       <DropdownMenuContent
         side={displayType === "mobile" ? "bottom" : "top"}
         className={cn(
-          "bg-primary text-primary-foreground",
+          "bg-popover text-foreground",
           displayType === "mobile"
             ? "ml-[1.5rem] mt-1 w-[252px]"
             : "mr-16 mt-4 w-52 ",
@@ -58,6 +58,7 @@ export function MenuConfig({ displayType }: MenuConfigProps) {
         <DropdownMenuCheckboxItem
           checked={selectedTheme === "light"}
           onCheckedChange={() => handleThemeChange("light")}
+          className={selectedTheme === "light" ? "bg-background" : ""}
         >
           <Sun className="mr-2 h-4 w-4" />
           <span>Light</span>
@@ -65,6 +66,7 @@ export function MenuConfig({ displayType }: MenuConfigProps) {
         <DropdownMenuCheckboxItem
           checked={selectedTheme === "dark"}
           onCheckedChange={() => handleThemeChange("dark")}
+          className={selectedTheme === "dark" ? "bg-background" : ""}
         >
           <Moon className="mr-2 h-4 w-4" />
           <span>Dark</span>
