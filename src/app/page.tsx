@@ -24,9 +24,9 @@ export default function Home() {
 
   return (
     <div className="container flex h-full flex-col items-center justify-center p-0">
-      <div className="flex min-h-[80dvh] w-full flex-col items-center justify-between">
+      <div className="flex min-h-[85dvh] w-full flex-col items-center justify-between">
         <section className="flex h-full min-h-[81.57dvh] w-full flex-col items-center justify-center gap-1 p-0 md:justify-evenly md:p-4">
-          <div className="flex h-full w-auto flex-1 flex-col items-center justify-center gap-4 px-2">
+          <div className="flex h-full w-auto flex-1 flex-col items-center justify-center gap-5 px-2">
             <Image
               src="/quil.jpg"
               width={0}
@@ -80,7 +80,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className=" flex h-full min-h-[11dvh] w-full flex-row items-start justify-center gap-4">
+        <div className=" flex h-full min-h-[10dvh] w-full flex-row items-center justify-center gap-4">
           <Link
             className="rounded-lg p-1 duration-300 hover:scale-125 hover:rounded-lg hover:bg-primary hover:text-secondary hover:duration-300"
             href="https://github.com/QuiLion7"
@@ -109,7 +109,7 @@ export default function Home() {
           >
             <Youtube className="h-5 w-5 md:h-6 md:w-6" />
           </Link>
-        </section>
+        </div>
       </div>
     </div>
   );
