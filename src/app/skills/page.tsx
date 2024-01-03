@@ -219,10 +219,10 @@ export default function Skills() {
                 <div className="grid h-auto w-full grid-cols-4 items-center justify-center gap-[0.3rem] p-1 sm:grid-cols-3 sm:flex-row sm:gap-2 md:p-2">
                   {ability.skills.map((skill, skillIndex) => (
                     <Button
-                      variant="ghost"
+                      variant="secondary"
                       asChild
                       key={skillIndex}
-                      className="flex w-full flex-col items-center justify-start sm:flex-row"
+                      className="flex w-full flex-col items-center justify-start hover:bg-primary hover:text-secondary sm:flex-row"
                     >
                       <Link
                         href={skill.documentationUrl}
