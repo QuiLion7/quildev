@@ -11,12 +11,6 @@ export default function Experience() {
     achievements: string[];
   }
 
-  interface IEducation {
-    degree: string;
-    institution: string;
-    period: string;
-  }
-
   const experiences: IExperience[] = [
     {
       role: "PROFESSOR DE QUÍMICA",
@@ -46,29 +40,6 @@ export default function Experience() {
     },
   ];
 
-  const education: IEducation[] = [
-    {
-      degree: "Engenharia de Software",
-      institution: "UNOPAR",
-      period: "02/2022 – 06/2025",
-    },
-    {
-      degree: "Gestão Escolar",
-      institution: "PROMINAS",
-      period: "09/2020 – 09/2021",
-    },
-    {
-      degree: "Educação Física Escolar",
-      institution: "KURIUS",
-      period: "08/2016 – 01/2018",
-    },
-    {
-      degree: "Licenciatura em Química",
-      institution: "UECE",
-      period: "02/2011 – 11/2015",
-    },
-  ];
-
   const ref = useRef(null);
   const { scrollXProgress } = useScroll({
     target: ref,
@@ -85,22 +56,22 @@ export default function Experience() {
         className="absolute left-4 top-0 flex h-full w-[2px] origin-top bg-primary"
       />
 
-      <section className="ml-12 flex w-full flex-col gap-6">
+      <section className="ml-12 flex w-full flex-col gap-4">
         {experiences.map((experience, index) => (
           <div
             className="flex flex-col items-start justify-center gap-1 text-justify"
             key={index}
           >
-            <h1 className="text-wrap text-lg font-semibold uppercase md:text-xl lg:text-2xl">
+            <h1 className="text-wrap text-lg font-semibold uppercase md:text-xl">
               {experience.role}
             </h1>
-            <h3 className="text-xs font-semibold uppercase sm:text-sm md:text-base">
+            <h3 className="text-xs font-semibold uppercase sm:text-sm">
               {experience.period} | {experience.company}
             </h3>
-            <h3 className="text-xs font-semibold sm:text-sm md:text-base">
+            <h3 className="text-xs font-semibold sm:text-sm">
               Responsabilidades: {experience.responsibilities.join(" ")}
             </h3>
-            <h3 className="text-xs font-semibold sm:text-sm md:text-base">
+            <h3 className="text-xs font-semibold sm:text-sm">
               Resultados: {experience.achievements.join(" ")}
             </h3>
           </div>
