@@ -100,7 +100,7 @@ export default function Header() {
         </Card>
       </nav>
 
-      <nav className="hidden h-[60px] items-center justify-center gap-2 rounded-b-sm border bg-card p-[0.5rem] px-[2%] text-card-foreground shadow-sm md:flex">
+      <nav className="hidden h-[60px] items-center justify-center gap-2 border bg-card p-[0.5rem] px-[2%] text-card-foreground shadow-sm md:flex">
         <Link href="/" className="flex h-full items-center  justify-center">
           <h1 className="md:text-1xl text-lg font-bold lg:text-2xl">
             QUIL
