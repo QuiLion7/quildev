@@ -1,6 +1,9 @@
-import { useRef } from "react";
-import { Separator } from "./ui/separator";
-import { motion, useScroll } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
 
 export default function Education() {
   interface IEducation {
@@ -32,37 +35,37 @@ export default function Education() {
     },
   ];
 
-  const ref = useRef(null);
-  const { scrollXProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center start"],
-  });
-
   return (
-    <div
-      ref={ref}
-      className="relative flex h-full w-full items-center justify-center"
-    >
-      <motion.div
-        style={{ scaleY: scrollXProgress }}
-        className="absolute left-4 top-0 flex h-full w-[2px] origin-top bg-primary"
-      />
-
-      <section className="ml-12 flex w-full flex-col gap-4">
-        {education.map((educ, index) => (
-          <div
-            className="flex flex-col items-start justify-center gap-1 text-justify"
-            key={index}
-          >
-            <h1 className="text-wrap text-lg font-semibold uppercase md:text-xl">
-              {educ.degree}
-            </h1>
-            <h3 className="text-xs font-semibold sm:text-sm">
-              {educ.institution}
-            </h3>
-            <h3 className="text-xs font-semibold sm:text-sm">{educ.period}</h3>
-          </div>
-        ))}
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <h1 className="text-md cursor-default text-center font-bold uppercase duration-300 hover:text-primary md:text-base lg:text-xl">
+        EDUCAÇÃO
+      </h1>
+      <section className="grid h-full w-full grid-cols-1 items-center justify-center gap-2">
+        <Accordion
+          type="single"
+          collapsible
+          className="grid w-full grid-cols-1 sm:grid-cols-2"
+        >
+          {education.map((educ, index) => (
+            <AccordionItem
+              className="p-2 duration-300 hover:rounded-lg hover:bg-background/50"
+              value={index.toString()}
+              key={index}
+            >
+              <AccordionTrigger className="text-sm font-bold uppercase duration-300 hover:text-primary md:text-base lg:text-xl">
+                {educ.degree}
+              </AccordionTrigger>
+              <AccordionContent className="flex flex-col gap-2">
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                  <strong>INSTITUIÇÃO:</strong> {educ.institution}
+                </h3>
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                  <strong>PERÍODO:</strong> {educ.period}
+                </h3>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
     </div>
   );

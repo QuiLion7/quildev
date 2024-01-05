@@ -1,6 +1,9 @@
-import { useRef } from "react";
-import { Separator } from "./ui/separator";
-import { motion, useScroll } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Experience() {
   interface IExperience {
@@ -26,7 +29,7 @@ export default function Experience() {
       ],
     },
     {
-      role: "ESTAGIÁRIO",
+      role: "ESTÁGIO NO LABORATÓRIO",
       company: "CAGECE-Itapipoca",
       period: "2014-2015",
       responsibilities: [
@@ -40,42 +43,38 @@ export default function Experience() {
     },
   ];
 
-  const ref = useRef(null);
-  const { scrollXProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center start"],
-  });
-
   return (
-    <div
-      ref={ref}
-      className="relative flex h-full w-full items-center justify-center"
-    >
-      <motion.div
-        style={{ scaleY: scrollXProgress }}
-        className="absolute left-4 top-0 flex h-full w-[2px] origin-top bg-primary"
-      />
-
-      <section className="ml-12 flex w-full flex-col gap-4">
-        {experiences.map((experience, index) => (
-          <div
-            className="flex flex-col items-start justify-center gap-1 text-justify"
-            key={index}
-          >
-            <h1 className="text-wrap text-lg font-semibold uppercase md:text-xl">
-              {experience.role}
-            </h1>
-            <h3 className="text-xs font-semibold uppercase sm:text-sm">
-              {experience.period} | {experience.company}
-            </h3>
-            <h3 className="text-xs font-semibold sm:text-sm">
-              Responsabilidades: {experience.responsibilities.join(" ")}
-            </h3>
-            <h3 className="text-xs font-semibold sm:text-sm">
-              Resultados: {experience.achievements.join(" ")}
-            </h3>
-          </div>
-        ))}
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <h1 className="text-md cursor-default text-center font-bold uppercase duration-300 hover:text-primary md:text-base lg:text-xl">
+        Experiência
+      </h1>
+      <section className="grid h-full w-full grid-cols-1 items-center justify-center gap-2 ">
+        <Accordion type="single" collapsible className="w-full">
+          {experiences.map((experience, index) => (
+            <AccordionItem
+              className="p-2 duration-300 hover:rounded-lg hover:bg-background/50"
+              value={index.toString()}
+              key={index}
+            >
+              <AccordionTrigger className="text-sm font-bold uppercase duration-300 hover:text-primary md:text-base lg:text-xl">
+                {experience.role} | {experience.period}
+              </AccordionTrigger>
+              <AccordionContent className="flex flex-col gap-2">
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                  <strong>EMPRESA:</strong> {experience.company}
+                </h3>
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                  <strong>RESPONSABILIDADES:</strong>{" "}
+                  {experience.responsibilities.join(" ")}
+                </h3>
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                  <strong>RESULTADOS:</strong>{" "}
+                  {experience.achievements.join(" ")}
+                </h3>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
     </div>
   );
