@@ -184,12 +184,12 @@ export default function Skills() {
 
   return (
     <div className="flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-center bg-[url('/skills.jpg')] bg-cover bg-center bg-no-repeat text-center">
-      <div className="flex h-[93.65dvh] w-full flex-col items-center justify-center overflow-y-auto bg-background/80 px-[2%] py-4">
-        <div className="flex h-full min-h-[90%] w-full flex-col items-center justify-center gap-2 px-[2%]">
-          <h1 className=" hidden h-auto w-[95%] text-lg font-bold uppercase sm:block sm:text-2xl lg:text-3xl">
+      <div className="flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-between overflow-y-auto bg-background/90">
+        <div className="flex h-auto min-h-[84.285dvh] w-full flex-col items-center justify-center gap-2 px-[2%] pt-2">
+          <h1 className=" h-auto w-full text-lg font-bold uppercase sm:text-2xl lg:text-3xl">
             Tecnologias e Ferramentas
           </h1>
-          <h2 className="hidden h-auto w-[80%] text-xs sm:block md:mb-4 md:text-sm lg:text-base">
+          <h2 className="h-auto w-full text-xs md:mb-4 md:text-sm lg:text-base">
             Explore as tecnologias e ferramentas que impulsionam a minha
             experiência como desenvolvedor Front-End.
           </h2>
@@ -200,8 +200,10 @@ export default function Skills() {
                   key={index}
                   variant="simple"
                   className={cn(
-                    "flex h-full w-full items-center justify-center rounded-lg border-2 border-primary p-2",
-                    selectedCategory === ability.name ? "bg-secondary/70" : "",
+                    "flex h-full w-full items-center justify-center border-y-2 border-primary p-2 duration-300 hover:rounded-lg",
+                    selectedCategory === ability.name
+                      ? "rounded-lg bg-secondary/80"
+                      : "",
                   )}
                   onClick={() => handleCategoryClick(ability.name)}
                 >
@@ -209,36 +211,36 @@ export default function Skills() {
                     <h2 className="my-1 flex w-full items-center justify-center text-xs font-bold sm:text-lg">
                       {ability.name}
                     </h2>
-                    <div className="absolute left-[-20px] top-[-20px] rounded-lg border-2 border-primary bg-secondary p-2 sm:left-[-18px] sm:top-[-18px]">
+                    <div className="absolute left-[-16px] top-[-20px] rounded-lg border-y-2 border-primary bg-secondary p-1 sm:left-[-18px] sm:top-[-18px] sm:p-2">
                       {ability.iconPath}
                     </div>
                   </div>
                 </Button>
               ))}
             </section>
-            <section className="h-auto w-full max-w-[650px] rounded-lg border-2 border-primary duration-300 hover:bg-background/30 hover:duration-300 lg:h-[330px]">
+            <section className="h-auto w-full max-w-[650px] border-y-2 border-primary duration-300 hover:rounded-lg hover:bg-background/50 lg:h-[330px]">
               {selectedSkills.map((ability, index) => (
                 <div
-                  className="flex h-full w-full flex-col items-start justify-start rounded-lg"
+                  className="flex h-full w-full flex-col items-start justify-start hover:rounded-lg"
                   key={index}
                 >
                   <h2 className="text-md flex w-full items-center justify-center py-1 font-bold uppercase sm:py-2 md:text-lg">
                     {ability.name}
                   </h2>
-                  <Separator className="h-[2px] bg-primary" />
-                  <div className="flex h-full w-full items-center justify-center p-1">
-                    <div className="grid h-auto w-full grid-cols-4 items-center justify-center gap-[0.3rem] p-1 sm:grid-cols-3 sm:flex-row sm:gap-2 md:p-2">
+                  <Separator className="h-[2px] rounded-lg bg-primary" />
+                  <div className="flex h-full w-full items-center justify-center">
+                    <div className="grid h-auto w-full grid-cols-4 items-center justify-center gap-[0.3rem]  p-1 sm:grid-cols-3 sm:flex-row sm:gap-2 md:p-2">
                       {ability.skills.map((skill, skillIndex) => (
                         <Button
                           variant="secondary"
                           asChild
                           key={skillIndex}
-                          className="flex w-full flex-col items-center justify-start bg-secondary/70 hover:bg-secondary/100 hover:text-primary sm:flex-row"
+                          className="flex w-full flex-col items-center justify-center rounded-lg bg-primary/65 hover:bg-secondary/100 hover:text-primary sm:flex-row"
                         >
                           <Link
                             href={skill.documentationUrl}
                             target="_blank"
-                            className="flex h-full w-full items-center justify-center rounded-lg bg-primary sm:justify-start"
+                            className="flex h-full w-full items-center justify-center bg-primary hover:rounded-lg sm:justify-start"
                           >
                             <Image
                               src={skill.iconPath}
@@ -262,7 +264,9 @@ export default function Skills() {
             </section>
           </div>
         </div>
-        <Footer />
+        <div className=" flex h-auto min-h-[9.635dvh] w-full">
+          <Footer />
+        </div>
       </div>
     </div>
   );
