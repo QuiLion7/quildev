@@ -9,7 +9,7 @@ export default function About() {
   return (
     <div className="flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-center bg-[url('/about.jpg')] bg-cover bg-center bg-no-repeat">
       <div className=" flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-between overflow-y-auto bg-background/80 ">
-        <div className="flex h-auto min-h-[84.285dvh] w-full flex-col items-center justify-center gap-2 px-[2%] pt-2 sm:gap-4 md:gap-6">
+        <div className="flex h-auto min-h-[84.2dvh] w-full flex-col items-center justify-center gap-2 px-[2%] pt-2 sm:gap-4 md:gap-6">
           <section className="group relative flex h-auto w-full flex-col items-center justify-center gap-2 border-y-2 border-primary p-2 duration-300 hover:rounded-lg hover:bg-background/50 sm:flex-row">
             <div className="w-full">
               <h1 className="text-md flex cursor-default justify-center text-center font-bold uppercase duration-300 hover:text-primary md:text-2xl lg:text-3xl">
@@ -66,7 +66,7 @@ export default function About() {
             </div>
           </section>
         </div>
-        <div className="z-10 flex h-auto min-h-[9.635dvh] w-full">
+        <div className="flex h-auto min-h-[9.45dvh] w-full">
           <Footer />
         </div>
       </div>
