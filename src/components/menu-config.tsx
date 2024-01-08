@@ -40,7 +40,7 @@ export function MenuConfig({ displayType }: MenuConfigProps) {
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <Button variant="simple" size="sm" className="px-2">
+        <Button variant="simple" size="sm" className="px-2 rounded-none">
           {displayType === "mobile" ? "Configuração" : <Settings />}
         </Button>
       </DropdownMenuTrigger>

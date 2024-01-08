@@ -34,7 +34,12 @@ export default function Header() {
         <Card className="flex h-[50px] w-full items-center justify-between px-[2%]">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" onClick={handleOpen}>
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={handleOpen}
+                className="rounded-lg"
+              >
                 <MenuIcon />
               </Button>
             </SheetTrigger>
@@ -69,7 +74,7 @@ export default function Header() {
                     <Link href={link.path} onClick={handleClose}>
                       <Button
                         variant="default"
-                        className="w-full justify-start gap-2"
+                        className="w-full justify-start gap-2 rounded-md"
                       >
                         <link.icon size={16} />
                         {link.label}
