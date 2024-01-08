@@ -19,7 +19,7 @@ export default function Home() {
       <div className="flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-center overflow-y-auto bg-background/80">
         <div className="relative flex h-full flex-col items-center justify-center px-[2%]">
           <section className="flex h-full min-h-[90%] items-center justify-center ">
-            <div className="flex flex-1 flex-col items-center justify-center gap-2 border-y-2 border-primary p-4 duration-300 hover:rounded-lg hover:bg-background/50 sm:gap-3 md:gap-4">
+            <div className="flex flex-1 flex-col items-center justify-center gap-2 border-y-2 border-primary p-4 duration-300 hover:rounded-lg hover:bg-background/60 sm:gap-3 md:gap-4">
               <h1 className="cursor-default text-2xl font-bold uppercase duration-300 hover:text-primary md:text-3xl lg:text-4xl">
                 Quilion Oliveira
               </h1>
@@ -67,7 +67,7 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <div className="absolute bottom-0 flex h-auto min-h-[10%] w-auto">
+        <div className="absolute bottom-0 flex h-auto min-h-[10%] w-full">
           <Footer />
         </div>
       </div>
