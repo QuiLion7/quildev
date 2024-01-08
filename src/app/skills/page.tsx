@@ -185,7 +185,7 @@ export default function Skills() {
   return (
     <div className="flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-center bg-[url('/skills.jpg')] bg-cover bg-center bg-no-repeat text-center">
       <div className="flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-between overflow-y-auto bg-background/90">
-        <div className="flex h-auto min-h-[84.285dvh] w-full flex-col items-center justify-center gap-2 px-[2%] pt-2">
+        <div className="flex h-auto min-h-[84.2dvh] w-full flex-col items-center justify-center gap-2 px-[2%] pt-2">
           <h1 className=" h-auto w-full text-lg font-bold uppercase sm:text-2xl lg:text-3xl">
             Tecnologias e Ferramentas
           </h1>
@@ -264,7 +264,7 @@ export default function Skills() {
             </section>
           </div>
         </div>
-        <div className=" flex h-auto min-h-[9.635dvh] w-full">
+        <div className=" flex h-auto min-h-[9.45dvh] w-full">
           <Footer />
         </div>
       </div>
