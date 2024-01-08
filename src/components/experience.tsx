@@ -60,14 +60,14 @@ export default function Experience() {
                 {experience.role} | {experience.period}
               </AccordionTrigger>
               <AccordionContent className="flex flex-col gap-2">
-                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-base">
                   <strong>EMPRESA:</strong> {experience.company}
                 </h3>
-                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-base">
                   <strong>RESPONSABILIDADES:</strong>{" "}
                   {experience.responsibilities.join(" ")}
                 </h3>
-                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-base">
                   <strong>RESULTADOS:</strong>{" "}
                   {experience.achievements.join(" ")}
                 </h3>

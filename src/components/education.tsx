@@ -56,10 +56,10 @@ export default function Education() {
                 {educ.degree}
               </AccordionTrigger>
               <AccordionContent className="flex flex-col gap-2">
-                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-base ">
                   <strong>INSTITUIÇÃO:</strong> {educ.institution}
                 </h3>
-                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-xl">
+                <h3 className="text-justify text-[0.7rem] font-semibold duration-300 hover:text-primary sm:text-xs md:text-sm lg:text-base">
                   <strong>PERÍODO:</strong> {educ.period}
                 </h3>
               </AccordionContent>
