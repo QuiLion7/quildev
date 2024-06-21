@@ -40,14 +40,22 @@ export function MenuConfig({ displayType }: MenuConfigProps) {
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <Button variant="simple" size="sm" className="px-2 rounded-none">
-          {displayType === "mobile" ? "Configuração" : <Settings />}
+        <Button
+          variant="any"
+          size="sm"
+          className="group rounded-xl hover:border-b-2 hover:border-primary hover:text-primary-foreground"
+        >
+          {displayType === "mobile" ? (
+            "Configuração"
+          ) : (
+            <Settings className="group-hover:animate-pulse" />
+          )}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         side={displayType === "mobile" ? "bottom" : "top"}
         className={cn(
-          "bg-popover text-foreground",
+          "bg-primary",
           displayType === "mobile"
             ? "ml-[1.5rem] mt-1 w-[252px]"
             : "mr-16 mt-4 w-52 ",
