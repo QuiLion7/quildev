@@ -13,6 +13,9 @@ module.exports = {
       screens: {
         "2xl": "1400px",
       },
+      fontFamily: {
+        primary: "var(--font-jetBrainsMono)",
+      },
     },
     extend: {
       colors: {
