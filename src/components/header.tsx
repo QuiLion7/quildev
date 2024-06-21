@@ -15,10 +15,12 @@ import { Separator } from "./ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { useState } from "react";
 import { MenuConfig } from "./menu-config";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const path = usePathname();
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -29,8 +31,8 @@ export default function Header() {
   };
 
   return (
-    <div className="h-full w-full">
-      <nav className="flex md:hidden">
+    <div className="fixed top-0 w-full">
+      <nav className="z-20 flex bg-background md:hidden">
         <Card className="flex h-[50px] w-full items-center justify-between px-[2%]">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -97,7 +99,7 @@ export default function Header() {
           <Link href="/">
             <h1 className="text-lg font-bold">
               QUIL
-              <span className="bg-gradient-to-r from-purple-900 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-900 to-sky-500 bg-clip-text text-lg text-transparent">
                 DEV
               </span>
             </h1>
@@ -105,32 +107,27 @@ export default function Header() {
         </Card>
       </nav>
 
-      <nav className="hidden h-[60px] items-center justify-center gap-2 border bg-card p-[0.5rem] px-[2%] text-card-foreground shadow-sm md:flex">
+      <nav className="z-20 hidden h-[60px] items-center justify-center gap-2 bg-background p-2 text-card-foreground md:flex">
         <Link href="/" className="flex h-full items-center  justify-center">
           <h1 className="md:text-1xl text-lg font-bold lg:text-2xl">
             QUIL
-            <span className="bg-gradient-to-r from-purple-900 to-indigo-500 bg-clip-text text-transparent">
+            <span className="md:text-1xl bg-gradient-to-r from-blue-900 to-sky-500 bg-clip-text text-lg font-bold text-transparent lg:text-2xl">
               DEV
             </span>
           </h1>
         </Link>
 
-        <ul className="p2-1 flex h-full w-full items-center justify-end gap-2 pr-2 text-sm uppercase">
+        <ul className="flex h-full w-full items-center justify-end gap-2 p-1 text-sm uppercase">
           {navigationLinks.map((link, index) => (
-            <li
+            <Link
               key={index}
-              className={
-                activeLink === link.path
-                  ? "rounded-lg bg-accent p-2 text-primary"
-                  : "p-2"
-              }
-              onMouseEnter={() => setActiveLink(link.path)}
-              onMouseLeave={() => setActiveLink(null)}
+              href={link.path}
+              className={`rounded-xl border-b-2 border-background capitalize transition-all duration-100 hover:border-b-2 hover:border-primary ${
+                path == link.path && "border-primary hover:border-white"
+              }`}
             >
-              <Link href={link.path} className="">
-                {link.label}
-              </Link>
-            </li>
+              <li className="p-2">{link.label}</li>
+            </Link>
           ))}
         </ul>
         <MenuConfig displayType={"desktop"} />
