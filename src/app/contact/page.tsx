@@ -65,10 +65,10 @@ export default function Contact() {
   }
 
   return (
-    <div className="flex h-full min-h-[93.65dvh] w-screen flex-col items-center justify-center bg-[url('/contact.jpg')] bg-cover bg-center bg-no-repeat">
-      <div className=" flex h-full min-h-[93.65dvh] w-full flex-col items-center justify-between overflow-y-auto bg-background/80 ">
+    <div className="flex h-full min-h-[87.28vh] w-screen flex-col items-center justify-center bg-[url('/contact.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className=" flex h-full min-h-[87.28vh] w-full flex-col items-center justify-between overflow-y-auto bg-background/80 ">
         <div className="flex h-auto min-h-[84.2dvh] w-full items-center justify-center px-[2%] pt-2">
-          <div className="flex h-full w-full max-w-[700px] items-center justify-center border-y-2 border-primary p-2 duration-300 hover:rounded-lg hover:bg-background/50">
+          <div className="flex h-full w-full max-w-[700px] items-center justify-center rounded-lg border-2 border-primary p-4 duration-300 hover:bg-background/50">
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -124,9 +124,6 @@ export default function Contact() {
               </form>
             </Form>
           </div>
-        </div>
-        <div className="flex h-auto min-h-[9.45dvh] w-full">
-          <Footer />
         </div>
       </div>
     </div>
