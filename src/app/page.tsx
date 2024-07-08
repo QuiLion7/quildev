@@ -32,7 +32,7 @@ export default function Home() {
               className="group flex w-full max-w-[200px] cursor-pointer justify-center rounded-xl border-2 font-bold uppercase"
             >
               <Link
-                href="https://drive.google.com/file/d/17VX4F-R15BVL2iY2jiarawZMtIUjGtZF/view?usp=sharing"
+                href="https://drive.google.com/file/d/1O9ArbhnUrxYtwQp8vwr1XLy3VvtNeHb3/view?usp=sharing"
                 target="_blank"
                 className=""
               >
