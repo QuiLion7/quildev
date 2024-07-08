@@ -155,24 +155,29 @@ export const experience: Experience = {
     "Sou um desenvolvedor Front-End que transforma ideias em realidade. Crio experiências impactantes, envolventes e responsivas.",
   items: [
     {
+      company: "LSINN",
+      position: "Consultor Trainee",
+      duration: "07/2024 - Atualmente",
+    },
+    {
       company: "Freelancer",
       position: "Desenvolvedor Full Stack",
-      duration: "2022 - Atualmente",
+      duration: "01/2024 - Atualmente",
     },
     {
       company: "EEEP Marta Giffoni",
       position: "Professor de Química",
-      duration: "2015 - Atualmente",
+      duration: "04/2015 - 06/2024",
     },
     {
       company: "CVP",
       position: "Professor de Química",
-      duration: "2024 - Atualmente",
+      duration: "01/2024 - 06/2024",
     },
     {
       company: "CAGECE",
       position: "Estagiário no Laboratório",
-      duration: "2024 - 2015",
+      duration: "07/2024 - 01/2015",
     },
   ],
 };
