@@ -37,6 +37,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { SiReactquery } from "react-icons/si";
 
 type ProjectIcon = {
   name: string;
@@ -100,6 +101,21 @@ export default function Projects() {
       ],
     },
     {
+      title: "QuiL Recipe",
+      images: ["/projects/recipe1.png", "/projects/recipe2.png"],
+      liveLink: "https://quilrecipe.vercel.app/",
+      repoLink: "https://github.com/QuiLion7/quilrecipe",
+      isPublic: true,
+      description:
+        "Localizador de receitas que consume uma API externa usando TanStack Query.",
+      technologies: [
+        { name: "React", icon: TbBrandReact },
+        { name: "Typescript", icon: TbBrandTypescript },
+        { name: "TailwindCSS", icon: TbBrandTailwind },
+        { name: "React Query", icon: SiReactquery },
+      ],
+    },
+    {
       title: "Portfolio Desenvolvedor",
       images: ["/projects/portifolio1.png", "/projects/portifolio2.png"],
       liveLink: "https://quilportfolio.vercel.app",
@@ -138,7 +154,10 @@ export default function Projects() {
       >
         <section className="grid h-full w-full grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {myProjects.map((project, index) => (
-            <Card key={index} className="rounded-xl border-2 border-primary">
+            <Card
+              key={index}
+              className="rounded-xl border-2 border-primary transition-all duration-300 hover:scale-[101%]"
+            >
               <CardHeader className="p-3">
                 <CardTitle>{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
