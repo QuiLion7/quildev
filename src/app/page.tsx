@@ -63,7 +63,7 @@ export default function Home() {
           <Photo
             imageUrl="/quilion.png"
             imageClasses="h-[150px] w-[150px] mix-blend-normal xl:h-[300px] xl:w-[300px]"
-            svgClasses="h-[180px] w-[180px] xl:h-[400px] xl:w-[400px]"
+            svgClasses="h-[160px] w-[160px] xl:h-[320px] xl:w-[320px]"
           />
         </section>
       </section>
