@@ -34,6 +34,14 @@ import {
 } from "react-icons/tb";
 import { PiStudentBold } from "react-icons/pi";
 
+export interface Skill {
+  name: string;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  emphasis: boolean;
+  documentationUrl: string;
+  development?: string;
+}
+
 type MainSkillsEmphasis = {
   name: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -70,27 +78,14 @@ export const footerLinks = [
     url: "https://www.instagram.com/quilion7",
     icon: InstagramIcon,
   },
-  {
-    label: "YouTube",
-    url: "https://www.youtube.com/@quilcode",
-    icon: YoutubeIcon,
-  },
+  // {
+  //   label: "YouTube",
+  //   url: "https://www.youtube.com/@quilcode",
+  //   icon: YoutubeIcon,
+  // },
 ];
 
-type Skill = {
-  name: string;
-  iconPath: string;
-  emphasis: boolean;
-  documentationUrl: string;
-};
-
 type IconType = ComponentType | ReactNode;
-
-type TechnicalAbilityCategory = {
-  name: string;
-  iconPath: IconType;
-  skills: Skill[];
-};
 
 interface InfoItem {
   fieldName: string;
@@ -100,45 +95,33 @@ interface InfoItem {
 interface About {
   title: string;
   description: string;
+  personalInfo: Array<{ fieldName: string; value: string }>;
   info: InfoItem[];
 }
 
 export const about: About = {
-  title: "Sobre Mim",
+  title: "Quem sou eu?!",
   description:
-    "Sou professor de química do ensino médio desde 2015 numa escola que é referência nacional, e por isso, as habilidades de adaptabilidade, inovação, dinamismo e proatividade são naturalmente utilizadas. Como um apaixonado por tecnologia, estudo periodicamente para me tornar um desenvolvedor de códigos e soluções. ",
+    "Eu sou um eterno aprendiz. Estudo sobre desenvolvimento periodicamente para me tornar um solucionador de problemas, através de linhas de código. Fui professor de química durante 9 anos, e possuo competências e habilidades que se destacam dos demais desenvolvedores. Dentre elas estão: adaptabilidade, proatividade, dinamismo, comunicação, persistência, criatividade e proatividade. ",
+  personalInfo: [
+    { fieldName: "Nome", value: "Quilion Oliveira" },
+    { fieldName: "Email", value: "quilbrub@gmail.com" },
+    { fieldName: "Freelance", value: "Disponível" },
+    { fieldName: "Idiomas", value: "Português/Nativo, Inglês/Básico" },
+  ],
   info: [
-    {
-      fieldName: "Nome",
-      fieldValue: "Quilion Oliveira",
-    },
-    {
-      fieldName: "Whatsapp",
-      fieldValue: "(88) 981062656",
-    },
-    {
-      fieldName: "Experiência",
-      fieldValue: "+3 Anos",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "quilbrub@gmail.com",
-    },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Disponível",
-    },
-    {
-      fieldName: "Idiomas",
-      fieldValue: "Português/Nativo, Inglês/Básico",
-    },
+    { fieldName: "Nome", fieldValue: "Quilion Oliveira" },
+    { fieldName: "Email", fieldValue: "quilbrub@gmail.com" },
+    { fieldName: "Freelance", fieldValue: "Disponível" },
+    { fieldName: "Idiomas", fieldValue: "Português/Nativo, Inglês/Básico" },
   ],
 };
 
 interface ExperienceItem {
-  company: string;
   position: string;
+  company: string;
   duration: string;
+  description?: string;
 }
 
 interface Experience {
@@ -152,7 +135,7 @@ export const experience: Experience = {
   icon: TbFileCode,
   title: "Minhas Experiências",
   description:
-    "Sou um desenvolvedor Front-End que transforma ideias em realidade. Crio experiências impactantes, envolventes e responsivas.",
+    "Independente da função, busco executar minhas tarefas com excelência, criatividade e no prazo determinado.",
   items: [
     {
       company: "LSINN",
@@ -183,10 +166,11 @@ export const experience: Experience = {
 };
 
 interface EducationItem {
+  course: string;
+  title?: string;
   institution: string;
-  name: string;
-  degree: string;
   duration: string;
+  degree: string;
 }
 
 interface Education {
@@ -200,31 +184,31 @@ export const education: Education = {
   icon: PiStudentBold,
   title: "Minhas Formações",
   description:
-    "Sendo aluno ou professor, continuo buscando evolução na aprendizagem.",
+    "Como um eterno aprendiz, estou em busca constante pela evolução.",
   items: [
     {
       institution: "UNOPAR",
-      name: "Engenharia de Software",
-      degree: "Graduação",
+      course: "Engenharia de Software",
       duration: "2022 - Atualmente",
+      degree: "Graduação",
     },
     {
       institution: "PROMINAS",
-      name: "Gestão Escolar",
-      degree: "Pós-Graduação",
+      course: "Gestão Escolar",
       duration: "2020 - 2021",
+      degree: "Pós-Graduação",
     },
     {
       institution: "KURIUS",
-      name: "Educação Física Escolar",
-      degree: "Pós-Graduação",
+      course: "Educação Física Escolar",
       duration: "2016 - 2018",
+      degree: "Pós-Graduação",
     },
     {
       institution: "UECE",
-      name: "Licenciatura em Química",
-      degree: "Graduação",
+      course: "Licenciatura em Química",
       duration: "2011 - 2015",
+      degree: "Graduação",
     },
   ],
 };
@@ -240,140 +224,144 @@ interface SkillItem {
 interface Skills {
   title: string;
   description: string;
+  categories: {
+    [category: string]: Skill[];
+  };
   skillList: SkillItem[];
 }
 
-export const mySkills: Skills = {
-  title: "Minhas Habilidades",
-  description:
-    "Desenvolvedor Front-End diferenciado que busca evoluir periodicamente",
-  skillList: [
-    {
-      name: "HTML",
-      icon: TbBrandHtml5,
-      emphasis: false,
-      development: "Front-End",
-      documentationUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    },
-    {
-      name: "CSS",
-      icon: TbBrandCss3,
-      emphasis: false,
-      development: "Front-End",
-      documentationUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    },
-    {
-      name: "JavaScript",
-      icon: TbBrandJavascript,
-      emphasis: true,
-      development: "Front-End",
-      documentationUrl:
-        "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    },
-    {
-      name: "TypeScript",
-      icon: TbBrandTypescript,
-      emphasis: true,
-      development: "Front-End",
-      documentationUrl: "https://www.typescriptlang.org/docs/",
-    },
-    {
-      name: "React",
-      icon: TbBrandReact,
-      emphasis: true,
-      development: "Front-End",
-      documentationUrl: "https://reactjs.org/",
-    },
-    {
-      name: "Next",
-      icon: TbBrandNextjs,
-      emphasis: true,
-      development: "Front-End",
-      documentationUrl: "https://nextjs.org/docs",
-    },
-    {
-      name: "TailwindCSS",
-      icon: TbBrandTailwind,
-      emphasis: true,
-      development: "Front-End",
-      documentationUrl: "https://tailwindcss.com/docs",
-    },
-    {
-      name: "Bootstrap",
-      icon: TbBrandBootstrap,
-      emphasis: false,
-      development: "Front-End",
-      documentationUrl: "https://getbootstrap.com/docs",
-    },
-    {
-      name: "Firebase",
-      icon: TbBrandFirebase,
-      emphasis: true,
-      development: "Banco de Dados",
-      documentationUrl: "https://firebase.google.com/docs",
-    },
-    {
-      name: "Subabase",
-      icon: TbBrandSupabase,
-      emphasis: false,
-      development: "Banco de Dados",
-      documentationUrl: "https://supabase.io/docs",
-    },
-    {
-      name: "MongoDB",
-      icon: TbBrandMongodb,
-      emphasis: true,
-      development: "Banco de Dados",
-      documentationUrl: "https://docs.mongodb.com/",
-    },
-    {
-      name: "Node",
-      icon: TbBrandNodejs,
-      emphasis: false,
-      development: "Back-End",
-      documentationUrl: "https://nodejs.org/en/docs/",
-    },
-    {
-      name: "Express",
-      icon: SiExpress,
-      emphasis: false,
-      development: "Back-End",
-      documentationUrl: "https://expressjs.com/en/starter/installing.html",
-    },
-    {
-      name: "Prisma",
-      icon: TbBrandPrisma,
-      emphasis: false,
-      development: "Back-End",
-      documentationUrl: "https://www.prisma.io/docs/",
-    },
-    {
-      name: "Git",
-      icon: TbBrandGit,
-      emphasis: false,
-      development: "FullStack",
-      documentationUrl: "https://git-scm.com/doc",
-    },
-    {
-      name: "GitHub",
-      icon: TbBrandGithub,
-      emphasis: false,
-      development: "FullStack",
-      documentationUrl: "https://docs.github.com/en/github",
-    },
-    {
-      name: "Figma",
-      icon: TbBrandFigma,
-      emphasis: false,
-      development: "Front-End",
-      documentationUrl: "https://help.figma.com/",
-    },
-    {
-      name: "Stripe",
-      icon: TbBrandStripe,
-      emphasis: false,
-      development: "Back-End",
-      documentationUrl: "https://stripe.com/docs",
-    },
-  ],
+export const mySkills = [
+  {
+    name: "HTML",
+    icon: TbBrandHtml5,
+    emphasis: false,
+    development: "Front-End",
+    documentationUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  },
+  {
+    name: "CSS",
+    icon: TbBrandCss3,
+    emphasis: false,
+    development: "Front-End",
+    documentationUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+  },
+  {
+    name: "JavaScript",
+    icon: TbBrandJavascript,
+    emphasis: true,
+    development: "Front-End",
+    documentationUrl: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    name: "TypeScript",
+    icon: TbBrandTypescript,
+    emphasis: true,
+    development: "Front-End",
+    documentationUrl: "https://www.typescriptlang.org/docs/",
+  },
+  {
+    name: "React",
+    icon: TbBrandReact,
+    emphasis: true,
+    development: "Front-End",
+    documentationUrl: "https://reactjs.org/",
+  },
+  {
+    name: "Next",
+    icon: TbBrandNextjs,
+    emphasis: true,
+    development: "Front-End",
+    documentationUrl: "https://nextjs.org/docs",
+  },
+  {
+    name: "TailwindCSS",
+    icon: TbBrandTailwind,
+    emphasis: true,
+    development: "Front-End",
+    documentationUrl: "https://tailwindcss.com/docs",
+  },
+  {
+    name: "Bootstrap",
+    icon: TbBrandBootstrap,
+    emphasis: false,
+    development: "Front-End",
+    documentationUrl: "https://getbootstrap.com/docs",
+  },
+  {
+    name: "Firebase",
+    icon: TbBrandFirebase,
+    emphasis: true,
+    development: "Banco de Dados",
+    documentationUrl: "https://firebase.google.com/docs",
+  },
+  {
+    name: "Subabase",
+    icon: TbBrandSupabase,
+    emphasis: false,
+    development: "Banco de Dados",
+    documentationUrl: "https://supabase.io/docs",
+  },
+  {
+    name: "MongoDB",
+    icon: TbBrandMongodb,
+    emphasis: true,
+    development: "Banco de Dados",
+    documentationUrl: "https://docs.mongodb.com/",
+  },
+  {
+    name: "Node",
+    icon: TbBrandNodejs,
+    emphasis: false,
+    development: "Back-End",
+    documentationUrl: "https://nodejs.org/en/docs/",
+  },
+  {
+    name: "Express",
+    icon: SiExpress,
+    emphasis: false,
+    development: "Back-End",
+    documentationUrl: "https://expressjs.com/en/starter/installing.html",
+  },
+  {
+    name: "Prisma",
+    icon: TbBrandPrisma,
+    emphasis: false,
+    development: "Back-End",
+    documentationUrl: "https://www.prisma.io/docs/",
+  },
+  {
+    name: "Git",
+    icon: TbBrandGit,
+    emphasis: false,
+    development: "FullStack",
+    documentationUrl: "https://git-scm.com/doc",
+  },
+  {
+    name: "GitHub",
+    icon: TbBrandGithub,
+    emphasis: false,
+    development: "FullStack",
+    documentationUrl: "https://docs.github.com/en/github",
+  },
+  {
+    name: "Figma",
+    icon: TbBrandFigma,
+    emphasis: false,
+    development: "Front-End",
+    documentationUrl: "https://help.figma.com/",
+  },
+  {
+    name: "Stripe",
+    icon: TbBrandStripe,
+    emphasis: false,
+    development: "Back-End",
+    documentationUrl: "https://stripe.com/docs",
+  },
+] as Skill[] & {
+  title: string;
+  description: string;
 };
+
+mySkills.title = "Minhas Habilidades";
+mySkills.description =
+  "Desenvolvedor Frontend, com foco em Next, Typescript e TailwindCSS.";
