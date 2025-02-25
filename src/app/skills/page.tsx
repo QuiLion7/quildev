@@ -75,7 +75,7 @@ export default function Skills() {
                 </p>
                 <ScrollArea className="h-[360px] p-3">
                   <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                    {mySkills.skillList.map((skill, index) => (
+                    {mySkills.map((skill, index) => (
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
@@ -110,7 +110,7 @@ export default function Skills() {
                       >
                         <span className="text-primary">{item.duration}</span>
                         <h3 className="min-h-[60px] max-w-[260px] text-center text-xl">
-                          {item.name}
+                          {item.course || item.title || "Curso"}
                         </h3>
                         <div className="flex items-center gap-2">
                           <span className="h-2 w-2 rounded-full bg-primary"></span>
