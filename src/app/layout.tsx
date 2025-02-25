@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/app/providers/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { cn } from "@/lib/utils";
 import PageTransition from "@/components/page-transition";
@@ -15,8 +15,35 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QuiL <Dev/>",
-  description: "Portfolio Developer Front-End",
+  title: "Quilion Oliveira | Desenvolvedor Frontend",
+  description:
+    "Portfólio profissional de Quilion Oliveira - Desenvolvedor Frontend especializado em React, Next.js e interfaces modernas",
+  keywords: [
+    "desenvolvedor frontend",
+    "react",
+    "next.js",
+    "typescript",
+    "portfolio",
+    "quilion oliveira",
+  ],
+  authors: [{ name: "Quilion Oliveira" }],
+  openGraph: {
+    title: "Quilion Oliveira | Desenvolvedor Frontend",
+    description:
+      "Desenvolvedor Frontend especializado em criar experiências digitais modernas e responsivas",
+    url: "https://quilportfolio.vercel.app",
+    siteName: "Portfolio de Quilion Oliveira",
+    images: [
+      {
+        url: "/og-image.jpg", // Crie uma imagem de preview para compartilhamento
+        width: 1200,
+        height: 630,
+        alt: "Quilion Oliveira - Desenvolvedor Frontend",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
         className={cn(
           jetBrainsMono.className,
@@ -40,7 +67,9 @@ export default function RootLayout({
         >
           <Header />
           <StairTransition />
-          <PageTransition>{children}</PageTransition>
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
