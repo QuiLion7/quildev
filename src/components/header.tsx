@@ -7,131 +7,154 @@ import {
   SheetClose,
   SheetContent,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { MenuIcon, Settings } from "lucide-react";
-import { Separator } from "./ui/separator";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { useState } from "react";
-import { MenuConfig } from "./menu-config";
+import { Menu, Moon, Sun } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 export default function Header() {
-  const [activeLink, setActiveLink] = useState<string | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const path = usePathname();
-
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
+  const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
 
   return (
-    <div className="fixed top-0 w-full">
-      <nav className="z-20 flex bg-background md:hidden">
-        <Card className="flex h-[50px] w-full items-center justify-between px-[2%]">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-primary/20 bg-background/80 backdrop-blur-sm">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <Link href="/" className="flex items-center gap-2">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground">
+              Q
+            </div>
+          </motion.div>
+          <motion.span
+            initial={{ x: -10, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-xl font-bold text-primary"
+          >
+            QuilDev
+          </motion.span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center md:flex">
+          <ul className="flex items-center gap-1">
+            {navigationLinks.map((link, index) => {
+              const isActive = pathname === link.path;
+              return (
+                <motion.li
+                  key={link.path}
+                  initial={{ y: -10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  <Link
+                    href={link.path}
+                    className={`group relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <link.icon
+                      className={`h-4 w-4 transition-transform group-hover:scale-110 ${
+                        isActive ? "text-primary" : ""
+                      }`}
+                    />
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute bottom-0 left-0 h-0.5 w-full bg-primary"
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </Link>
+                </motion.li>
+              );
+            })}
+          </ul>
+
+          {/* Theme Toggle */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="ml-4"
+          >
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="rounded-full bg-primary/10 transition-colors hover:bg-primary/20"
+              aria-label="Toggle theme"
+            >
+              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+          </motion.div>
+        </nav>
+
+        {/* Mobile Navigation */}
+        <div className="flex items-center gap-2 md:hidden">
+          {/* Theme Toggle Mobile */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="rounded-full bg-primary/10 transition-colors hover:bg-primary/20"
+            aria-label="Toggle theme"
+          >
+            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+
+          <Sheet>
             <SheetTrigger asChild>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={handleOpen}
-                className="rounded-lg"
-              >
-                <MenuIcon />
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Menu</span>
               </Button>
             </SheetTrigger>
-
-            <SheetContent side="left" className="w-[18.75rem]">
-              <SheetHeader className="text-left text-lg font-semibold">
-                Menu
+            <SheetContent side="right">
+              <SheetHeader className="mb-4">
+                <SheetTitle className="text-primary">Menu</SheetTitle>
               </SheetHeader>
-
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2 py-4">
-                  <Avatar>
-                    <AvatarFallback>Quilion Oliveira</AvatarFallback>
-
-                    <AvatarImage src="quilion.png" />
-                  </Avatar>
-
-                  <div className="flex flex-col">
-                    <p className="font-medium">Desenvolvedor Front-End</p>
-                    <p className="text-sm opacity-75">
-                      Transformando Ideias em Realidade
-                    </p>
-                  </div>
-                </div>
-
-                <Separator />
-              </div>
-
-              <nav className="mt-4 flex flex-col gap-2">
-                {navigationLinks.map((link, index) => (
-                  <SheetClose asChild key={index}>
-                    <Link href={link.path} onClick={handleClose}>
-                      <Button
-                        variant="default"
-                        className="w-full justify-start gap-2 rounded-md"
-                      >
-                        <link.icon size={16} />
-                        {link.label}
-                      </Button>
-                    </Link>
-                  </SheetClose>
-                ))}
-                <SheetClose asChild>
-                  <div onClick={handleClose}>
-                    <div className="inline-flex h-10 w-full items-center justify-start  whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-                      <Settings size={16} />
-                      <MenuConfig displayType={"mobile"} />
-                    </div>
-                  </div>
-                </SheetClose>
+              <nav>
+                <ul className="flex flex-col gap-2">
+                  {navigationLinks.map((link) => {
+                    const isActive = pathname === link.path;
+                    return (
+                      <li key={link.path}>
+                        <Link
+                          href={link.path}
+                          className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                            isActive
+                              ? "bg-primary/10 text-primary"
+                              : "hover:bg-muted"
+                          }`}
+                        >
+                          <link.icon className="h-4 w-4" />
+                          <span>{link.label}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </nav>
             </SheetContent>
           </Sheet>
-
-          <Link href="/">
-            <h1 className="text-lg font-bold">
-              QUIL
-              <span className="bg-gradient-to-r from-blue-900 to-sky-500 bg-clip-text text-lg text-transparent">
-                DEV
-              </span>
-            </h1>
-          </Link>
-        </Card>
-      </nav>
-
-      <nav className="z-20 hidden h-[60px] items-center justify-center gap-2 bg-background p-2 text-card-foreground md:flex">
-        <Link href="/" className="flex h-full items-center  justify-center">
-          <h1 className="md:text-1xl text-lg font-bold lg:text-2xl">
-            QUIL
-            <span className="md:text-1xl bg-gradient-to-r from-blue-900 to-sky-500 bg-clip-text text-lg font-bold text-transparent lg:text-2xl">
-              DEV
-            </span>
-          </h1>
-        </Link>
-
-        <ul className="flex h-full w-full items-center justify-end gap-2 p-1 text-sm uppercase">
-          {navigationLinks.map((link, index) => (
-            <Link
-              key={index}
-              href={link.path}
-              className={`rounded-xl border-b-2 border-background capitalize transition-all duration-100 hover:border-b-2 hover:border-primary ${
-                path == link.path && "border-primary hover:border-white"
-              }`}
-            >
-              <li className="p-2">{link.label}</li>
-            </Link>
-          ))}
-        </ul>
-        <MenuConfig displayType={"desktop"} />
-      </nav>
-    </div>
+        </div>
+      </div>
+    </header>
   );
 }
