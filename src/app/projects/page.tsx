@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ComponentType, SVGProps, useState } from "react";
+import React, { ComponentType, SVGProps, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -26,7 +26,7 @@ import {
   TbBrandReact,
   TbBrandBootstrap,
 } from "react-icons/tb";
-import { Code, Search } from "lucide-react";
+import { Code, Search, ExternalLink, Github, Filter } from "lucide-react";
 import Link from "next/link";
 import {
   Dialog,
@@ -38,6 +38,25 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { SiReactquery } from "react-icons/si";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 type ProjectIcon = {
   name: string;
@@ -145,101 +164,331 @@ export default function Projects() {
     },
   ];
 
+  const [filteredProjects, setFilteredProjects] =
+    useState<Project[]>(myProjects);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTech, setSelectedTech] = useState("all");
+
+  // Extrair todas as tecnologias únicas dos projetos
+  const allTechnologies = Array.from(
+    new Set(
+      myProjects.flatMap((project) =>
+        project.technologies.map((tech) => tech.name),
+      ),
+    ),
+  ).sort();
+
+  // Efeito para filtrar projetos com base no termo de pesquisa e tecnologia selecionada
+  useEffect(() => {
+    let results = myProjects;
+
+    // Filtrar por termo de pesquisa
+    if (searchTerm) {
+      results = results.filter(
+        (project) =>
+          project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          project.description.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+    }
+
+    // Filtrar por tecnologia
+    if (selectedTech !== "all") {
+      results = results.filter((project) =>
+        project.technologies.some((tech) => tech.name === selectedTech),
+      );
+    }
+
+    setFilteredProjects(results);
+  }, [searchTerm, selectedTech]);
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <main className="mb-0 mt-2 flex h-full min-h-[87.28vh] w-screen flex-col items-center justify-center sm:mt-[60px]">
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="flex h-full w-full max-w-screen-2xl flex-col items-center justify-center px-4 pt-12"
-      >
-        <section className="grid h-full w-full grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {myProjects.map((project, index) => (
-            <Card
-              key={index}
-              className="rounded-xl border-2 border-primary transition-all duration-300 hover:scale-[101%]"
+    <main className="relative z-10 flex min-h-[87.28vh] w-full flex-col items-center justify-center px-4 py-12 pt-20 sm:mt-0 sm:pt-24">
+      <div className="w-full max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 text-center"
+        >
+          <h1 className="mb-4 text-3xl font-bold text-primary md:text-4xl">
+            Meus Projetos
+          </h1>
+          <p className="mx-auto max-w-2xl text-muted-foreground">
+            Conheça um pouco da minha trajetória de desenvolvimento.
+          </p>
+        </motion.div>
+
+        <motion.div
+          {...fadeIn}
+          className="mb-8 rounded-xl border border-primary/30 bg-background/80 p-6"
+        >
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="relative flex-1 rounded-xl">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Pesquisar projetos..."
+                className="w-full rounded-xl pl-10"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Filter className="h-4 w-4 text-muted-foreground" />
+              <span className="text-sm font-medium">Filtrar:</span>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-2 rounded-xl text-sm"
+                  >
+                    {selectedTech === "all"
+                      ? "Todas tecnologias"
+                      : selectedTech}
+                    <ChevronDown className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuLabel>Tecnologias</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioGroup
+                    value={selectedTech}
+                    onValueChange={setSelectedTech}
+                  >
+                    <DropdownMenuRadioItem value="all">
+                      Todas
+                    </DropdownMenuRadioItem>
+                    {allTechnologies.map((tech) => (
+                      <DropdownMenuRadioItem key={tech} value={tech}>
+                        {tech}
+                      </DropdownMenuRadioItem>
+                    ))}
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </div>
+        </motion.div>
+
+        {filteredProjects.length === 0 ? (
+          <motion.div
+            {...fadeIn}
+            className="flex h-60 flex-col items-center justify-center rounded-xl border border-primary/30 bg-background/80 p-6 text-center"
+          >
+            <p className="mb-2 text-lg font-medium text-muted-foreground">
+              Nenhum projeto encontrado com os filtros atuais.
+            </p>
+            <p className="mb-4 text-sm text-muted-foreground">
+              Tente ajustar seus critérios de pesquisa ou tecnologia.
+            </p>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setSearchTerm("");
+                setSelectedTech("all");
+              }}
             >
-              <CardHeader className="p-3">
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="p-3">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Image
-                      src={project.images[0]}
-                      alt={project.title}
-                      quality={100}
-                      layout="responsive"
-                      loading="lazy"
-                      width={500}
-                      height={500}
-                      className="cursor-pointer rounded-xl"
-                    />
-                  </DialogTrigger>
-                  <DialogContent className="w-full">
-                    <DialogHeader className="flex flex-col items-center justify-center">
-                      <DialogTitle>{project.title}</DialogTitle>
-                      <DialogDescription>
-                        {project.description}
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div>
-                      <Image
-                        src={project.images[0]}
-                        alt={project.title}
-                        quality={100}
-                        layout="responsive"
-                        loading="lazy"
-                        width={500}
-                        height={500}
-                        className="rounded-xl"
-                      />
+              Limpar filtros
+            </Button>
+          </motion.div>
+        ) : (
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div key={index} variants={item}>
+                <Card className="group h-full overflow-hidden rounded-xl border-2 border-primary/30 bg-background/80 transition-all duration-300 hover:scale-[1.02] hover:border-primary hover:shadow-lg">
+                  <CardHeader className="p-4">
+                    <CardTitle className="group-hover:text-primary">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="line-clamp-2">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="p-0">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-video w-full cursor-pointer overflow-hidden rounded-xl">
+                          <Image
+                            src={project.images[0]}
+                            alt={project.title}
+                            fill
+                            className="rounded-xl object-cover px-4"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            <ExternalLink className="h-10 w-10 text-white" />
+                          </div>
+                        </div>
+                      </DialogTrigger>
+
+                      <DialogContent className="max-w-3xl p-4 sm:p-6">
+                        <DialogHeader className="mb-2">
+                          <DialogTitle className="text-lg font-bold text-primary sm:text-xl">
+                            {project.title}
+                          </DialogTitle>
+                          <DialogDescription className="mt-1 text-sm">
+                            {project.description}
+                          </DialogDescription>
+                        </DialogHeader>
+
+                        <div className="relative overflow-hidden rounded-lg">
+                          <Carousel className="w-full">
+                            <CarouselContent>
+                              {project.images.map((image, i) => (
+                                <CarouselItem key={i}>
+                                  <div className="relative h-[50vh] w-full overflow-hidden rounded-lg">
+                                    <Image
+                                      src={image}
+                                      alt={`${project.title} screenshot ${
+                                        i + 1
+                                      }`}
+                                      fill
+                                      className="object-contain"
+                                    />
+                                  </div>
+                                </CarouselItem>
+                              ))}
+                            </CarouselContent>
+                            <div className="absolute inset-x-0 top-1/2 z-10 flex -translate-y-1/2 justify-between px-2">
+                              <CarouselPrevious className="h-7 w-7 bg-background/80 hover:bg-background" />
+                              <CarouselNext className="h-7 w-7 bg-background/80 hover:bg-background" />
+                            </div>
+                          </Carousel>
+                        </div>
+
+                        <div className="mt-4">
+                          <h4 className="mb-2 text-sm font-semibold">
+                            Tecnologias:
+                          </h4>
+                          <div className="flex flex-wrap gap-1.5">
+                            {project.technologies.map((tech, i) => (
+                              <Badge
+                                key={i}
+                                variant="outline"
+                                className="flex items-center gap-1 px-2 py-0.5 text-xs"
+                              >
+                                <tech.icon className="h-3 w-3" />
+                                {tech.name}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
+                          <Button
+                            size="sm"
+                            className="w-full sm:w-auto"
+                            asChild
+                          >
+                            <Link href={project.liveLink} target="_blank">
+                              <Search className="mr-1.5 h-3.5 w-3.5" />
+                              Ver Site
+                            </Link>
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="w-full sm:w-auto"
+                            asChild
+                          >
+                            <Link href={project.repoLink} target="_blank">
+                              <Github className="mr-1.5 h-3.5 w-3.5" />
+                              Código
+                            </Link>
+                          </Button>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </CardContent>
+
+                  <div className="px-4 py-3">
+                    <h4 className="mb-2 text-sm font-medium">Tecnologias:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, techIndex) => (
+                        <TooltipProvider key={techIndex} delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="rounded-full bg-primary/10 p-1.5 transition-all duration-300 hover:bg-primary/20">
+                                <tech.icon className="h-4 w-4" />
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent side="bottom">
+                              <p className="text-xs">{tech.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      ))}
                     </div>
-                  </DialogContent>
-                </Dialog>
-              </CardContent>
-              <CardFooter className="flex h-full w-full flex-col items-center justify-center gap-2 p-3 pt-0 sm:flex-row sm:gap-0 sm:pt-3">
-                <div className="flex w-full flex-wrap items-center justify-center gap-1 sm:justify-start md:gap-2">
-                  {project.technologies.map((technology, index) => (
-                    <TooltipProvider key={index} delayDuration={100}>
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <technology.icon className="h-5 w-5 md:h-7 md:w-7" />
-                        </TooltipTrigger>
-                        <TooltipContent side="bottom" align="center">
-                          <span className="text-xs">{technology.name}</span>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  ))}
-                </div>
-                <div className="flex w-full items-center justify-center gap-2 px-2 sm:justify-end">
-                  <Button className="w-[80px] rounded-xl text-xs md:w-[100px] md:text-sm">
-                    <Link
-                      href={project.liveLink}
-                      target="_blank"
-                      className="flex items-center justify-center gap-1"
+                  </div>
+
+                  <CardFooter className="flex flex-col gap-2 border-t border-primary/10 p-4 sm:flex-row sm:justify-between">
+                    <Button
+                      size="sm"
+                      className="w-full rounded-lg transition-all duration-300 hover:scale-105 sm:flex-1"
+                      asChild
                     >
-                      <Search className="h-4 w-4 md:h-5 md:w-5" />
-                      <p>Site</p>
-                    </Link>
-                  </Button>
-                  <Button className="w-[80px] rounded-xl text-xs md:w-[100px] md:text-sm">
-                    <Link
-                      href={project.repoLink}
-                      target="_blank"
-                      className="flex items-center justify-center gap-1"
+                      <Link
+                        href={project.liveLink}
+                        target="_blank"
+                        className="flex items-center justify-center gap-1"
+                      >
+                        <Search className="h-4 w-4" />
+                        <span>Ver Site</span>
+                      </Link>
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="w-full rounded-lg transition-all duration-300 hover:scale-105 sm:flex-1"
+                      asChild
                     >
-                      <Code className="h-4 w-4 md:h-5 md:w-5" />
-                      <p>Código</p>
-                    </Link>
-                  </Button>
-                </div>
-              </CardFooter>
-            </Card>
-          ))}
-        </section>
-      </motion.section>
+                      <Link
+                        href={project.repoLink}
+                        target="_blank"
+                        className="flex items-center justify-center gap-1"
+                      >
+                        <Code className="h-4 w-4" />
+                        <span>Código</span>
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </div>
     </main>
   );
 }
