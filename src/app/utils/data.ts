@@ -168,6 +168,7 @@ export const experience: Experience = {
 interface EducationItem {
   course: string;
   title?: string;
+  name?: string;
   institution: string;
   duration: string;
   degree: string;
