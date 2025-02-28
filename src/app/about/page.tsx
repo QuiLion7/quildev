@@ -31,9 +31,9 @@ export default function About() {
         opacity: 1,
         transition: { delay: 0.3, duration: 0.6, ease: "easeIn" },
       }}
-      className="flex min-h-[87.28vh] w-full flex-col items-center justify-center px-4 py-12 pt-20 sm:mt-0 sm:pt-24"
+      className="flex min-h-[87.28vh] w-full max-w-screen-2xl flex-col items-center justify-center px-4 py-12 pt-20 sm:mt-0 sm:pt-24"
     >
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-screen-xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,32 +44,32 @@ export default function About() {
             Sobre Mim
           </h1>
         </motion.div>
-        <Tabs defaultValue="about" className="w-full">
+        <Tabs defaultValue="about" className="w-full max-w-screen-2xl">
           <div className="mb-2 flex w-full justify-center">
-            <TabsList className="grid w-full max-w-3xl grid-cols-2 gap-4 rounded-xl bg-background/80 p-2 md:grid-cols-4">
+            <TabsList className="grid h-full w-full max-w-3xl grid-cols-1 gap-4 rounded-xl bg-background/80 p-2 sm:grid-cols-2 md:grid-cols-4">
               <TabsTrigger
                 value="about"
-                className="flex items-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                className="flex items-center justify-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
-                <span className="hidden sm:inline">Sobre</span>
+                <span className="inline">Sobre</span>
               </TabsTrigger>
               <TabsTrigger
                 value="experience"
                 className="flex items-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
-                <span className="hidden sm:inline">Experiência</span>
+                <span className="inline">Experiência</span>
               </TabsTrigger>
               <TabsTrigger
                 value="education"
                 className="flex items-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
-                <span className="hidden sm:inline">Formação</span>
+                <span className="inline">Formação</span>
               </TabsTrigger>
               <TabsTrigger
                 value="skills"
                 className="flex items-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
-                <span className="hidden sm:inline">Habilidades</span>
+                <span className="inline">Habilidades</span>
               </TabsTrigger>
             </TabsList>
           </div>
@@ -78,7 +78,7 @@ export default function About() {
             {/* Sobre Mim */}
             <TabsContent value="about" className="mt-0">
               <div className="flex flex-col gap-8 md:flex-row">
-                <div className="flex-1">
+                <div className="flex-2 ">
                   <motion.h2
                     {...fadeIn}
                     className="mb-4 text-2xl font-bold text-primary"
@@ -145,7 +145,7 @@ export default function About() {
                 {experience.description}
               </motion.p>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
                 {experience.items.map((item, index) => (
                   <motion.div
                     key={index}
@@ -158,7 +158,7 @@ export default function About() {
                         duration: 0.5,
                       },
                     }}
-                    className="group rounded-xl border-2 border-primary/30 bg-background/50 p-6 transition-all duration-300 hover:border-primary hover:shadow-md"
+                    className="group h-full min-h-[150px] rounded-xl border-2 border-primary/30 bg-background/50 p-6 transition-all duration-300 hover:border-primary hover:shadow-md"
                   >
                     <div className="mb-4 flex items-center justify-between">
                       <Badge
@@ -189,21 +189,24 @@ export default function About() {
             </TabsContent>
 
             {/* Formação */}
-            <TabsContent value="education" className="mt-0">
+            <TabsContent
+              value="education"
+              className="mt-0 w-full max-w-screen-2xl"
+            >
               <motion.h2
                 {...fadeIn}
-                className="mb-6 text-2xl font-bold text-primary"
+                className="mb-6 w-full text-2xl font-bold text-primary"
               >
                 {education.title}
               </motion.h2>
               <motion.p
                 {...fadeIn}
-                className="mb-8 text-base text-muted-foreground"
+                className="mb-8 w-full text-base text-muted-foreground"
               >
                 {education.description}
               </motion.p>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid w-full gap-6 sm:grid-cols-2 md:grid-cols-3">
                 {education.items.map((item, index) => (
                   <motion.div
                     key={index}
@@ -216,9 +219,9 @@ export default function About() {
                         duration: 0.5,
                       },
                     }}
-                    className="group rounded-xl border-2 border-primary/30 bg-background/50 p-6 transition-all duration-300 hover:border-primary hover:shadow-md"
+                    className="group flex h-full min-h-[150px] w-full flex-col rounded-xl border-2 border-primary/30 bg-background/50 p-6 transition-all duration-300 hover:border-primary hover:shadow-md"
                   >
-                    <div className="mb-4 flex items-center justify-between">
+                    <div className="mb-4 flex w-full items-center justify-between">
                       <Badge variant="outline" className="text-xs">
                         <CalendarDays className="mr-1 h-3 w-3" />
                         {item.duration}
@@ -252,8 +255,8 @@ export default function About() {
                 {mySkills.description}
               </motion.p>
 
-              <div className="mt-8">
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              <div className="mt-8 w-full">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                   {mySkills.map((skill: Skill, index: number) => (
                     <motion.div
                       key={index}
@@ -262,8 +265,8 @@ export default function About() {
                       transition={{ delay: 0.1 * index, duration: 0.5 }}
                       className="flex flex-col items-center rounded-lg border border-primary/20 bg-card p-4 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-md"
                     >
-                      <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                        <skill.icon className="h-6 w-6 text-primary" />
+                      <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                        <skill.icon className="h-7 w-7 text-primary" />
                       </div>
                       <span className="text-sm font-medium">{skill.name}</span>
                     </motion.div>

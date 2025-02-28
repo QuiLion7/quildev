@@ -10,7 +10,7 @@ import { TypeEffect } from "@/components/type-effect";
 export default function Home() {
   return (
     <main className="relative z-10 flex min-h-[87.28vh] w-full flex-col items-center justify-center px-4 py-12 pt-20 sm:mt-0 sm:pt-24">
-      <div className="w-full max-w-6xl">
+      <div className="w-screen max-w-screen-2xl px-5">
         <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -57,7 +57,11 @@ export default function Home() {
               </Button>
 
               <Button asChild variant="outline" size="lg" className="gap-2">
-                <Link href="/files/curriculo.pdf" target="_blank" download>
+                <Link
+                  href="https://drive.google.com/file/d/1DJ7UIWhLqt3ZuoLHXAekiyycUTvLpkNF/view?usp=sharing"
+                  target="_blank"
+                  download
+                >
                   Baixar CV
                   <Download className="h-4 w-4" />
                 </Link>

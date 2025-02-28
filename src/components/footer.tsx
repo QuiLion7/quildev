@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full border-t border-primary/20 bg-background/80 py-6 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-screen-2xl px-4">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="flex items-center gap-2">

@@ -21,7 +21,7 @@ export default function Skills() {
       }}
       className="my-[40px] flex h-full w-full items-center justify-center py-12 xl:py-0"
     >
-      <div className="flex w-[90vw] items-center justify-center">
+      <div className="flex w-[90vw] max-w-screen-2xl items-center justify-center">
         <Tabs
           defaultValue="experience"
           className="flex w-full flex-col items-center justify-center p-1 xl:flex-row"
