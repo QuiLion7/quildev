@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Portfolio de Quilion Oliveira",
     images: [
       {
-        url: "/og-image.jpg", // Crie uma imagem de preview para compartilhamento
+        url: "/quilion.png",
         width: 1200,
         height: 630,
         alt: "Quilion Oliveira - Desenvolvedor Frontend",
