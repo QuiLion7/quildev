@@ -17,6 +17,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Image from "next/image";
+import { SiReacthookform, SiTensorflow } from "react-icons/si";
 import {
   TbBrandTypescript,
   TbBrandNextjs,
@@ -25,6 +26,7 @@ import {
   TbBrandMongodb,
   TbBrandReact,
   TbBrandBootstrap,
+  TbBrandRadixUi,
 } from "react-icons/tb";
 import { Code, Search, ExternalLink, Github, Filter } from "lucide-react";
 import Link from "next/link";
@@ -38,6 +40,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { SiReactquery } from "react-icons/si";
+import { BsWebcam } from "react-icons/bs";
 import {
   Carousel,
   CarouselContent,
@@ -75,6 +78,36 @@ interface Project {
 export default function Projects() {
   const myProjects: Project[] = [
     {
+      title: "Quildetection",
+      images: ["/projects/quildetection1.png", "/projects/quildetection2.png"],
+      liveLink: "https://quildetection.vercel.app/",
+      repoLink: "https://github.com/QuiLion7/quildetection",
+      isPublic: true,
+      description: "Sistema de detecção de movimento em tempo real",
+      technologies: [
+        { name: "Next", icon: TbBrandNextjs },
+        { name: "Typescript", icon: TbBrandTypescript },
+        { name: "TailwindCSS", icon: TbBrandTailwind },
+        { name: "Tensorflow ", icon: SiTensorflow },
+        { name: "React Webcam", icon: BsWebcam },
+      ],
+    },
+    {
+      title: "Gerenciando Oak",
+      images: ["/projects/gerenciando1.png", "/projects/gerenciando2.png"],
+      liveLink: "https://gerenciando-oak.vercel.app/",
+      repoLink: "https://github.com/QuiLion7/gerenciando-oak",
+      isPublic: true,
+      description: "Sistema de gerenciamento de produtos - Vaga de Estágio",
+      technologies: [
+        { name: "Next", icon: TbBrandNextjs },
+        { name: "Typescript", icon: TbBrandTypescript },
+        { name: "TailwindCSS", icon: TbBrandTailwind },
+        { name: "Radix UI", icon: TbBrandRadixUi },
+        { name: "React Hook Form", icon: SiReacthookform },
+      ],
+    },
+    {
       title: "Quilvacation",
       images: ["/projects/quilvacation1.png", "/projects/quilvacation2.png"],
       liveLink: "https://quilvacation.vercel.app",
@@ -103,22 +136,21 @@ export default function Projects() {
         { name: "TailwindCSS", icon: TbBrandTailwind },
       ],
     },
-
-    {
-      title: "QuilCursos",
-      images: ["/projects/quilcursos1.png", "/projects/quilcursos2.png"],
-      liveLink: "https://quilcursos.vercel.app",
-      repoLink: "https://github.com/yourusername/quilcursos",
-      isPublic: true,
-      description:
-        "Uma plataforma de cursos em vídeo online que podem ser gratuitos ou pagos.",
-      technologies: [
-        { name: "Next", icon: TbBrandNextjs },
-        { name: "Typescript", icon: TbBrandTypescript },
-        { name: "TailwindCSS", icon: TbBrandTailwind },
-        { name: "MongoDB", icon: TbBrandMongodb },
-      ],
-    },
+    // {
+    //   title: "QuilCursos",
+    //   images: ["/projects/quilcursos1.png", "/projects/quilcursos2.png"],
+    //   liveLink: "https://quilcursos.vercel.app",
+    //   repoLink: "https://github.com/yourusername/quilcursos",
+    //   isPublic: true,
+    //   description:
+    //     "Uma plataforma de cursos em vídeo online que podem ser gratuitos ou pagos.",
+    //   technologies: [
+    //     { name: "Next", icon: TbBrandNextjs },
+    //     { name: "Typescript", icon: TbBrandTypescript },
+    //     { name: "TailwindCSS", icon: TbBrandTailwind },
+    //     { name: "MongoDB", icon: TbBrandMongodb },
+    //   ],
+    // },
     {
       title: "QuiL Recipe",
       images: ["/projects/recipe1.png", "/projects/recipe2.png"],
@@ -227,7 +259,7 @@ export default function Projects() {
 
   return (
     <main className="relative z-10 flex min-h-[87.28vh] w-full flex-col items-center justify-center px-4 py-12 pt-20 sm:mt-0 sm:pt-24">
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-screen-2xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
