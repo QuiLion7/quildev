@@ -31,7 +31,7 @@ export default function About() {
         opacity: 1,
         transition: { delay: 0.3, duration: 0.6, ease: "easeIn" },
       }}
-      className="flex min-h-[87.28vh] w-full max-w-screen-2xl flex-col items-center justify-center px-4 py-12 pt-20 sm:mt-0 sm:pt-24"
+      className="flex min-h-[87.28vh] w-full max-w-screen-2xl flex-col items-center justify-center py-12 pt-20 sm:mt-0 sm:pt-24"
     >
       <div className="w-full max-w-screen-xl">
         <motion.div
@@ -49,7 +49,7 @@ export default function About() {
             <TabsList className="grid h-full w-full max-w-3xl grid-cols-1 gap-4 rounded-xl bg-background/80 p-2 sm:grid-cols-2 md:grid-cols-4">
               <TabsTrigger
                 value="about"
-                className="flex items-center justify-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                className="flex items-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 <span className="inline">Sobre</span>
               </TabsTrigger>
@@ -120,10 +120,10 @@ export default function About() {
                 >
                   <div className="relative h-[300px] w-[300px] overflow-hidden rounded-xl border-2 border-primary/30 md:h-[350px] md:w-[350px]">
                     <Image
-                      src="/quilion.png"
+                      src="/quilion2.png"
                       alt="Quilion Oliveira"
                       fill
-                      className="object-cover object-center"
+                      className="object-cover object-center mix-blend-difference"
                     />
                   </div>
                 </motion.div>
