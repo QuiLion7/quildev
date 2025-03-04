@@ -42,7 +42,7 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-center text-xs text-muted-foreground">
               © {currentYear} Quilion Oliveira. Todos os direitos reservados.
             </p>
           </div>
