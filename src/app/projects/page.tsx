@@ -27,7 +27,10 @@ import {
   TbBrandReact,
   TbBrandBootstrap,
   TbBrandRadixUi,
+  TbApi,
 } from "react-icons/tb";
+import { FaLaptopCode } from "react-icons/fa6";
+import { MdAnimation } from "react-icons/md";
 import { Code, Search, ExternalLink, Github, Filter } from "lucide-react";
 import Link from "next/link";
 import {
@@ -123,6 +126,39 @@ export default function Projects() {
       ],
     },
     {
+      title: "Desafio Perguntas",
+      images: ["/projects/desafio1.png", "/projects/desafio2.png"],
+      liveLink: "https://desafio-vaga-estagio-target.vercel.app/",
+      repoLink: "https://github.com/QuiLion7/desafio-vaga-estagio-target",
+      isPublic: true,
+      description:
+        "Projeto responsivo de perguntas e respostas desafio - Vaga de Estágio",
+      technologies: [
+        { name: "Next", icon: TbBrandNextjs },
+        { name: "Typescript", icon: TbBrandTypescript },
+        { name: "TailwindCSS", icon: TbBrandTailwind },
+        { name: "React Type Animation", icon: MdAnimation },
+        { name: "React Syntax Highlighter", icon: FaLaptopCode },
+        { name: "React Hook Form", icon: SiReacthookform },
+      ],
+    },
+    {
+      title: "QuiL Recipe",
+      images: ["/projects/recipe1.png", "/projects/recipe2.png"],
+      liveLink: "https://quilrecipe.vercel.app/",
+      repoLink: "https://github.com/QuiLion7/quilrecipe",
+      isPublic: true,
+      description:
+        "Localizador de receitas que consume uma API externa usando TanStack Query.",
+      technologies: [
+        { name: "React", icon: TbBrandReact },
+        { name: "Typescript", icon: TbBrandTypescript },
+        { name: "TailwindCSS", icon: TbBrandTailwind },
+        { name: "Tanstack Query", icon: SiReactquery },
+        { name: "API", icon: TbApi },
+      ],
+    },
+    {
       title: "RQ fotografia",
       images: ["/projects/rqfotografia1.png", "/projects/rqfotografia2.png"],
       liveLink: "https://rq-fotografia.vercel.app",
@@ -151,21 +187,7 @@ export default function Projects() {
     //     { name: "MongoDB", icon: TbBrandMongodb },
     //   ],
     // },
-    {
-      title: "QuiL Recipe",
-      images: ["/projects/recipe1.png", "/projects/recipe2.png"],
-      liveLink: "https://quilrecipe.vercel.app/",
-      repoLink: "https://github.com/QuiLion7/quilrecipe",
-      isPublic: true,
-      description:
-        "Localizador de receitas que consume uma API externa usando TanStack Query.",
-      technologies: [
-        { name: "React", icon: TbBrandReact },
-        { name: "Typescript", icon: TbBrandTypescript },
-        { name: "TailwindCSS", icon: TbBrandTailwind },
-        { name: "React Query", icon: SiReactquery },
-      ],
-    },
+
     {
       title: "Portfolio Desenvolvedor",
       images: ["/projects/portifolio1.png", "/projects/portifolio2.png"],
@@ -307,8 +329,8 @@ export default function Projects() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuLabel>Tecnologias</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
+                  {/* <DropdownMenuLabel>Tecnologias</DropdownMenuLabel>
+                  <DropdownMenuSeparator /> */}
                   <DropdownMenuRadioGroup
                     value={selectedTech}
                     onValueChange={setSelectedTech}
