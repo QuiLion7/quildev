@@ -9,25 +9,25 @@ import { TypeEffect } from "@/components/type-effect";
 
 export default function Home() {
   return (
-    <main className="relative z-10 flex min-h-[87.28vh] w-full flex-col items-center justify-center px-4 py-12 pt-20 sm:mt-0 sm:pt-24">
-      <div className="w-screen max-w-screen-2xl px-5">
+    <main className="relative z-10 flex min-h-[87.28vh] w-full flex-col items-center justify-center py-12 pt-20 sm:mt-0 sm:pt-24">
+      <div className="w-screen max-w-screen-2xl px-4 sm:px-5">
         <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center md:items-start md:text-left"
+            className="flex w-full flex-col items-center text-center "
           >
             <div className="mb-2 inline-flex items-center rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-sm text-primary">
               <Code className="mr-1 h-4 w-4" />
               Desenvolvedor Front-end
             </div>
 
-            <h1 className="mb-3 mt-2 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Olá, eu sou{" "}
+            <h1 className="mb-3 mt-2 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 Quilion
-              </span>
+              </span>{" "}
+              aqui
             </h1>
 
             <div className="mb-6 h-12 text-xl font-medium text-muted-foreground sm:text-2xl">
@@ -99,7 +99,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex justify-center"
+            className="relative flex items-center justify-center"
           >
             <div className="relative h-[350px] w-[350px] sm:h-[400px] sm:w-[400px] md:h-[450px] md:w-[450px]">
               <div className="absolute left-1/2 top-1/2 h-[90%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 blur-2xl"></div>
