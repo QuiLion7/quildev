@@ -1,7 +1,6 @@
 "use client";
 import { navigationLinks } from "@/app/utils/data";
 import Link from "next/link";
-import { Card } from "./ui/card";
 import {
   Sheet,
   SheetClose,
@@ -15,10 +14,12 @@ import { Menu, Moon, Sun } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import { useState } from "react";
 
 export default function Header() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+  const [openSheet, setOpenSheet] = useState(false);
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-primary/20 bg-background/80 backdrop-blur-sm">
@@ -104,7 +105,7 @@ export default function Header() {
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-end gap-2 pr-2 md:hidden">
           {/* Theme Toggle Mobile */}
           <Button
             variant="ghost"
@@ -118,7 +119,7 @@ export default function Header() {
             <span className="sr-only">Toggle theme</span>
           </Button>
 
-          <Sheet>
+          <Sheet open={openSheet} onOpenChange={setOpenSheet}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
@@ -137,6 +138,9 @@ export default function Header() {
                       <li key={link.path}>
                         <Link
                           href={link.path}
+                          onClick={() => {
+                            setOpenSheet(false);
+                          }}
                           className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                             isActive
                               ? "bg-primary/10 text-primary"
