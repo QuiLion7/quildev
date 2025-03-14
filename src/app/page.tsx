@@ -79,7 +79,7 @@ export default function Home() {
               </Link>
 
               <Link
-                href="https://www.linkedin.com/in/quilion-oliveira-224156235/"
+                href="https://www.linkedin.com/in/quilion7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary hover:text-primary-foreground"

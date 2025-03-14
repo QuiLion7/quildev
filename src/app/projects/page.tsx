@@ -17,7 +17,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Image from "next/image";
-import { SiReacthookform, SiTensorflow } from "react-icons/si";
+import {
+  SiJest,
+  SiReacthookform,
+  SiShadcnui,
+  SiTensorflow,
+} from "react-icons/si";
 import {
   TbBrandTypescript,
   TbBrandNextjs,
@@ -80,6 +85,25 @@ interface Project {
 
 export default function Projects() {
   const myProjects: Project[] = [
+    {
+      title: "Chuck-norris-jokes",
+      images: [
+        "/projects/chuck-norris-jokes1.png",
+        "/projects/chuck-norris-jokes2.png",
+      ],
+      liveLink: "https://chuck-norris-jokes-xi.vercel.app/",
+      repoLink: "https://github.com/QuiLion7/chuck-norris-jokes",
+      isPublic: true,
+      description: "Consumindo API de piadas Chuck Norris",
+      technologies: [
+        { name: "Next", icon: TbBrandNextjs },
+        { name: "Typescript", icon: TbBrandTypescript },
+        { name: "TailwindCSS", icon: TbBrandTailwind },
+        { name: "ShadcnUi  ", icon: SiShadcnui },
+        { name: "Tanstack Query", icon: SiReactquery },
+        { name: "Jest", icon: SiJest },
+      ],
+    },
     {
       title: "Quildetection",
       images: ["/projects/quildetection1.png", "/projects/quildetection2.png"],

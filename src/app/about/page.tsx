@@ -46,7 +46,7 @@ export default function About() {
         </motion.div>
         <Tabs defaultValue="about" className="w-full max-w-screen-2xl">
           <div className="mb-2 flex w-full justify-center">
-            <TabsList className="grid h-full w-full max-w-3xl grid-cols-1 gap-4 rounded-xl bg-background/80 p-2 sm:grid-cols-2 md:grid-cols-4">
+            <TabsList className="grid h-full w-full max-w-3xl grid-cols-1 gap-4 rounded-xl bg-background/80 p-2 px-4 sm:grid-cols-2 md:grid-cols-4">
               <TabsTrigger
                 value="about"
                 className="flex items-center gap-2 text-secondary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
@@ -123,7 +123,7 @@ export default function About() {
                       src="/quilion2.png"
                       alt="Quilion Oliveira"
                       fill
-                      className="object-cover object-center mix-blend-difference"
+                      className="object-cover object-center"
                     />
                   </div>
                 </motion.div>
