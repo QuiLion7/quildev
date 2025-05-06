@@ -22,18 +22,21 @@ import {
   SiReacthookform,
   SiShadcnui,
   SiTensorflow,
+  SiGooglegemini,
+  SiClerk,
 } from "react-icons/si";
 import {
   TbBrandTypescript,
   TbBrandNextjs,
   TbBrandTailwind,
   TbBrandFirebase,
-  TbBrandMongodb,
   TbBrandReact,
   TbBrandBootstrap,
   TbBrandRadixUi,
   TbApi,
+  TbDatabaseImport,
 } from "react-icons/tb";
+import { MdOutlineRecordVoiceOver } from "react-icons/md";
 import { FaLaptopCode } from "react-icons/fa6";
 import { MdAnimation } from "react-icons/md";
 import { Code, Search, ExternalLink, Github, Filter } from "lucide-react";
@@ -61,10 +64,8 @@ import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
@@ -85,6 +86,25 @@ interface Project {
 
 export default function Projects() {
   const myProjects: Project[] = [
+    {
+      title: "Quiltreina",
+      images: ["/projects/quiltreina1.png", "/projects/quiltreina2.png"],
+      liveLink: "https://quiltreina.vercel.app/",
+      repoLink: "https://github.com/QuiLion7/quiltreina",
+      isPublic: true,
+      description:
+        "Usando IA generativa, assistente por voz e dados em tempo real para criar treinos e dietas personalizados, com base no perfil físico e metas de saúde do usuário.",
+      technologies: [
+        { name: "Next", icon: TbBrandNextjs },
+        { name: "Typescript", icon: TbBrandTypescript },
+        { name: "TailwindCSS", icon: TbBrandTailwind },
+        { name: "ShadcnUi  ", icon: SiShadcnui },
+        { name: "Clerk", icon: SiClerk },
+        { name: "Convex ", icon: TbDatabaseImport },
+        { name: "Vapi.ai", icon: MdOutlineRecordVoiceOver },
+        { name: "Gemini AI", icon: SiGooglegemini },
+      ],
+    },
     {
       title: "Chuck-norris-jokes",
       images: [

@@ -11,7 +11,7 @@ import {
   YoutubeIcon,
 } from "lucide-react";
 
-import { SiExpress } from "react-icons/si";
+import { SiExpress, SiSvelte } from "react-icons/si";
 import {
   TbBrandTypescript,
   TbBrandJavascript,
@@ -31,6 +31,7 @@ import {
   TbBrandFigma,
   TbBrandStripe,
   TbFileCode,
+  TbDatabaseImport,
 } from "react-icons/tb";
 import { PiStudentBold } from "react-icons/pi";
 
@@ -102,7 +103,7 @@ interface About {
 export const about: About = {
   title: "Quem sou eu?!",
   description:
-    "Eu sou um eterno aprendiz. Estudo sobre desenvolvimento periodicamente para me tornar um solucionador de problemas, através de linhas de código. Fui professor de química durante 9 anos, e possuo competências e habilidades que se destacam dos demais desenvolvedores. Dentre elas estão: adaptabilidade, proatividade, dinamismo, comunicação, persistência, criatividade e proatividade. ",
+    "Eu sou um eterno aprendiz que transforma problemas em solucições inovadoras, através de linhas de código. Fui professor de química durante 9 anos, e possuo competências e habilidades que se destacam dos demais desenvolvedores. Dentre elas estão: adaptabilidade, proatividade, dinamismo, comunicação, persistência, criatividade e proatividade. ",
   personalInfo: [
     { fieldName: "Nome", value: "Quilion Oliveira" },
     { fieldName: "Email", value: "quilbrub@gmail.com" },
@@ -139,13 +140,18 @@ export const experience: Experience = {
   items: [
     {
       company: "LSINN",
-      position: "Consultor Trainee",
-      duration: "07/2024 - Atualmente",
+      position: "Desenvolvedor Júnior",
+      duration: "08/2025 -Atualmente",
     },
     {
-      company: "Freelancer",
-      position: "Desenvolvedor Full Stack",
-      duration: "01/2024 - Atualmente",
+      company: "LSINN",
+      position: "Consultor Júnior",
+      duration: "06/2025 - 07/2025",
+    },
+    {
+      company: "LSINN",
+      position: "Consultor Trainee",
+      duration: "07/2024 - 05/2025",
     },
     {
       company: "EEEP Marta Giffoni",
@@ -190,7 +196,7 @@ export const education: Education = {
     {
       institution: "UNOPAR",
       course: "Engenharia de Software",
-      duration: "2022 - Atualmente",
+      duration: "2022 - 2025",
       degree: "Graduação",
     },
     {
@@ -261,6 +267,13 @@ export const mySkills = [
     documentationUrl: "https://www.typescriptlang.org/docs/",
   },
   {
+    name: "Svelte",
+    icon: SiSvelte,
+    emphasis: true,
+    development: "Front-End",
+    documentationUrl: "https://svelte.dev/",
+  },
+  {
     name: "React",
     icon: TbBrandReact,
     emphasis: true,
@@ -308,6 +321,13 @@ export const mySkills = [
     emphasis: true,
     development: "Banco de Dados",
     documentationUrl: "https://docs.mongodb.com/",
+  },
+  {
+    name: "Convex",
+    icon: TbDatabaseImport,
+    emphasis: true,
+    development: "Banco de Dados",
+    documentationUrl: "https://docs.convex.dev/home",
   },
   {
     name: "Node",
